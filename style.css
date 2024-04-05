@@ -1,0 +1,278 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background: goldenrod;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-button{
+  height: 10px;
+  background: goldenrod;
+
+  cursor: pointer;
+}
+nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: goldenrod;
+  padding: 20px;
+}
+nav span{
+  font-size: 25px;
+  font-style: italic;
+  font-weight: bold;
+  color: #fff;
+}
+main{
+  display: flex;
+  margin-top: 67px;
+}
+.frame{
+  position: fixed;
+  top: 76px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+}
+.side-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  background: #fff;
+  border-right: 1px solid goldenrod;
+}
+.side-bar i{
+  color: goldenrod;
+  font-size: 30px;
+  cursor: pointer;
+}
+.container{
+  width: 100%;
+}
+.search{
+  display: flex;
+  height: fit-content;
+  border-bottom: 1px solid goldenrod;
+  background: #fff;
+}
+.search-bar{
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border: 1px solid goldenrod;
+  background: #fff;
+  margin: 13px auto;
+}
+.search-bar input{
+  color: goldenrod;
+  font-size: 23px;
+  width: 100%;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  border-right: 1px solid goldenrod;
+  outline: none;
+}
+.search i{  
+  color: goldenrod;
+  padding: 5px;
+  cursor: pointer;
+}
+.box{
+  width: 100%;
+  height: 78vh;
+  padding: 20px;
+  overflow-y: scroll;
+  background: #fff;
+}
+.content-box{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: fit-content;
+  height: fit-content;
+  background: #fff;
+  border: 1px solid goldenrod;
+}
+.content img{
+  width: 180px;
+  height: 130px;
+  background: lightgray;
+}
+.details{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: goldenrod;
+  border-top: 1px solid goldenrod;
+}
+.details span:first-child{
+  font-size: 23px;
+  font-weight: 700;
+}
+.details span{
+  font-size: 20px;
+  font-weight: 700;
+}
+.content-box button{
+  color: goldenrod;
+  font-weight: 700;
+  border: 1px solid goldenrod;
+  background: transparent;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.content-box button:hover{
+  color: #fff;
+  background:goldenrod;
+}
+.not-found{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: goldenrod;
+}
+.not-found i{
+  font-size: 30px;
+}
+.not-found span{
+  font-size: 25px;
+  font-weight: 500;
+  font-style: italic;
+}
+.top-scroll{
+  position: fixed;
+  right: 375px;
+  bottom: 20px;
+  color: goldenrod;
+  cursor: pointer;
+}
+.preview-board{
+  width: 500px;
+  border-left: 1px solid goldenrod;
+  background: #fff;
+}
+.cart-txt{
+  display: flex;
+  justify-content: space-between;
+  padding: 19px 10px;
+  border-bottom: 1px solid goldenrod;
+}
+.cart-txt span{
+  color: goldenrod;
+  font-size: 23px;
+}
+.items-no{
+  display: flex;
+  align-items: center;
+}
+.items-no i{
+  color: goldenrod;
+  margin-right: 5px;
+}
+.items-no span{
+  color: goldenrod;
+  font-size: 20px;
+  font-weight: bold;
+}
+.item-lists{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  max-height: 61.3vh;
+  padding: 10px;
+}
+.items{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background: goldenrod;
+}
+.items img{
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+}
+.item-txt{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.product{
+  color: #fff;
+  font-size: 18px;
+}
+.p-q{
+  display: flex;
+  flex-direction: column;
+}
+.p-q span{
+  color: #fff;
+  font-size: 15px;
+}
+.items .close{
+  display: flex;
+  cursor: pointer;
+}
+.items .close i{
+  font-size: 14px;
+  color: wheat;
+  margin: auto;
+  transition: all 0.3s;
+}
+.items .close i:hover{
+  color: red;
+}
+.total{
+  display: flex;
+  justify-content: flex-end;
+  color: goldenrod;
+  font-weight: bold;
+  border-top: 1px solid goldenrod;
+  padding: 10px 0px;
+  padding: 10px;
+}
+.print-download{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px;
+  border-top: 1px solid goldenrod;
+}
+.print-download button{
+  color: goldenrod;
+  font-size: 18px;
+  padding: 5px;
+  border: 1px solid goldenrod;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.print-download button:hover{
+  color: #fff;
+  background: goldenrod;
+}
