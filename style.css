@@ -93,7 +93,7 @@ main{
 }
 .box{
   width: 100%;
-  height: 75.9vh;
+  height: 77.1vh;
   padding: 20px;
   overflow-y: scroll;
   background: #fff;
@@ -281,4 +281,14 @@ main{
 .print-download button:hover{
   color: #fff;
   background: goldenrod;
+}
+
+/* Mini */
+@media (max-width: 630px){
+  .search-bar{
+    width: 90%;
+  }
+  .top-scroll{
+    right: 265px;
+  }
 }
