@@ -92,8 +92,8 @@ main{
   padding: 5px;
 }
 .box{
-  width: 834.57px;
-  height: 78vh;
+  width: 100%;
+  height: 75.9vh;
   padding: 20px;
   overflow-y: scroll;
   background: #fff;
@@ -145,21 +145,6 @@ main{
 .details button:hover{
   color: #fff;
   background:goldenrod;
-}
-.swipe-box-content{
-  width: 90%;
-  margin: 30px auto;
-}
-.swiper {
-  width: 100%;
-  padding-bottom: 15px!important;
-}
-.swiper-wrapper{
-  display: flex;
-}
-.swiper-pagination{
-  position: relative !important;
-  top: 15px !important;
 }
 .not-found{
   display: none;
