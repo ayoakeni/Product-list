@@ -1,6 +1,7 @@
 const searchInput = document.querySelector('input[type="search"]');
 const contentBox = document.querySelector('.content-box');
 const notFound = document.querySelector('.not-found');
+const emptyCart = document.querySelector('.empty-cart'); // Select the empty cart element
 
 searchInput.addEventListener('input', () => {
   let searchTerm = searchInput.value.toLowerCase();
@@ -27,7 +28,6 @@ searchInput.addEventListener('input', () => {
 const addToCartButtons = document.querySelectorAll('.content-box button');
 const itemsNo = document.getElementById('items-no');
 const totalPriceElement = document.querySelector('.total span');
-const emptyCart = document.querySelector('.empty-cart');
 
 let totalPrice = 0;
 let totalQuantity = 0;
@@ -58,12 +58,13 @@ addToCartButtons.forEach(button => {
           <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
         </div>
       `;
-      emptyCart.style.display = 'none';
+      emptyCart.style.display = 'none'; // Hide the empty cart message when adding items to the cart
       let closeButton = item.querySelector('.close');
       closeButton.addEventListener('click', () => {
         item.remove();
         updateTotalPrice();
         updateCartQuantity();
+        checkCartEmpty(); // Check if the cart is empty after removing an item
       });
 
       let itemList = document.querySelector('.item-lists');
@@ -93,6 +94,13 @@ function updateCartQuantity() {
   totalQuantity = document.querySelectorAll('.items').length;
   itemsNo.innerText = totalQuantity;
 }
+
+function checkCartEmpty() {
+  if (document.querySelectorAll('.items').length === 0) {
+    emptyCart.style.display = 'flex'; // Display the empty cart message if the cart is empty
+  }
+}
+
 // Print and Download
 const printButton = document.getElementById('print');
 const downloadButton = document.getElementById('download');
@@ -120,6 +128,52 @@ downloadButton.addEventListener('click', () => {
       document.body.removeChild(a);
     }
   });  
+});
+
+// Swiper slide
+var swiper = new Swiper(".mySwiper", {
+  loop: true,
+  autoplay: {
+    delay: 3000,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    600: {
+      slidesPerView: 1.5,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    941: {
+      slidesPerView: 1.4,
+      spaceBetween: 30,
+    },
+    970: {
+      slidesPerView: 1.4,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3.4,
+      spaceBetween: 30,
+    },
+    1349: {
+      slidesPerView: 3,
+      spaceBetween: 130,
+    },
+    1440: {
+      slidesPerView: 3,
+      spaceBetween: 30,
+    },
+  },
 });
 
 // const download = document.getElementById('download');

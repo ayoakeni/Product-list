@@ -92,7 +92,7 @@ main{
   padding: 5px;
 }
 .box{
-  width: 100%;
+  width: 834.57px;
   height: 78vh;
   padding: 20px;
   overflow-y: scroll;
@@ -133,7 +133,7 @@ main{
   font-size: 20px;
   font-weight: 700;
 }
-.content-box button{
+.details button{
   color: goldenrod;
   font-weight: 700;
   border: 1px solid goldenrod;
@@ -142,9 +142,24 @@ main{
   cursor: pointer;
   transition: all 0.3s;
 }
-.content-box button:hover{
+.details button:hover{
   color: #fff;
   background:goldenrod;
+}
+.swipe-box-content{
+  width: 90%;
+  margin: 30px auto;
+}
+.swiper {
+  width: 100%;
+  padding-bottom: 15px!important;
+}
+.swiper-wrapper{
+  display: flex;
+}
+.swiper-pagination{
+  position: relative !important;
+  top: 15px !important;
 }
 .not-found{
   display: none;
@@ -202,7 +217,7 @@ main{
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
-  height: 63.6vh;
+  height: 57.3vh;
   padding: 10px;
 }
 .empty-cart{
