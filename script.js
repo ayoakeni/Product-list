@@ -27,6 +27,7 @@ searchInput.addEventListener('input', () => {
 const addToCartButtons = document.querySelectorAll('.content-box button');
 const itemsNo = document.getElementById('items-no');
 const totalPriceElement = document.querySelector('.total span');
+const emptyCart = document.querySelector('.empty-cart');
 
 let totalPrice = 0;
 let totalQuantity = 0;
@@ -57,7 +58,7 @@ addToCartButtons.forEach(button => {
           <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
         </div>
       `;
-
+      emptyCart.style.display = 'none';
       let closeButton = item.querySelector('.close');
       closeButton.addEventListener('click', () => {
         item.remove();

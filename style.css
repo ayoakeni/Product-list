@@ -41,7 +41,7 @@ main{
 }
 .frame{
   position: fixed;
-  top: 76px;
+  top: 69px;
   right: 0;
   left: 0;
   bottom: 0;
@@ -90,7 +90,6 @@ main{
 .search i{  
   color: goldenrod;
   padding: 5px;
-  cursor: pointer;
 }
 .box{
   width: 100%;
@@ -203,8 +202,15 @@ main{
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
-  max-height: 61.3vh;
+  height: 63.6vh;
   padding: 10px;
+}
+.empty-cart{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  color: goldenrod;
+  height: 100%;
 }
 .items{
   display: flex;
