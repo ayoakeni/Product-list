@@ -252,7 +252,7 @@ main{
   transition: all 0.3s;
 }
 .items .close i:hover{
-  color: red;
+  color: #fff;
 }
 .total{
   display: flex;
