@@ -93,7 +93,7 @@ main{
 }
 .box{
   width: 100%;
-  height: 77.1vh;
+  height: 79.2vh;
   padding: 20px;
   overflow-y: scroll;
   background: #fff;
@@ -177,7 +177,7 @@ main{
 .cart-txt{
   display: flex;
   justify-content: space-between;
-  padding: 17.5px 10px;
+  padding: 17.5px 15px;
   border-bottom: 1px solid goldenrod;
 }
 .cart-txt span{
@@ -314,29 +314,39 @@ main{
   padding: 10px;
 }
 
-/* Settings */
-.setting-container{
+
+.setting-container, 
+.account-container,
+.add-container{
   display: flex;
   height: 100vh;
   background: #fff;
 }
-.setting-box{
+.setting-box, 
+.account-box,
+.add-box{
   width: 50%;
   height: fit-content;
   margin: auto;
   border: 1px solid goldenrod;
 }
-.set-title{
+.set-title, 
+.account-title,
+.add-title{
   font-size: 24px;
   color:  #fff;
   background: goldenrod;
   padding: 15px;
 }
-.set-title i{
+.set-title i, 
+.account-title i,
+.add-title i{
   font-size: 18px;
   color: #fff;
   margin-right: 10px;
 }
+
+/* Settings */
 .setting-content{
   display: flex;
   flex-direction: column;
