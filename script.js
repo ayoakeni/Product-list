@@ -123,7 +123,7 @@ downloadButton.addEventListener('click', () => {
   // Add store name to the header
   let headerDetails = document.createElement('div');
   headerDetails.innerHTML = `
-  <div>CAMILI VENTURES AND LIMITED</div>
+  <div class="store-name">CAMILI VENTURES AND LIMITED</div>
   <div>Address: 10 Allen junction, opposite Uba ikeja lagos.</div>
   <div>Date: ${new Date().toLocaleDateString()}</div>
   <div>Time: ${new Date().toLocaleTimeString()}</div>

@@ -29,7 +29,7 @@ nav{
   background: goldenrod;
   padding: 20px;
 }
-nav span{
+nav .store-name{
   font-size: 25px;
   font-style: italic;
   font-weight: bold;
@@ -305,13 +305,14 @@ main{
 }
 
 .item-list-container{
-  font-size: 18px;
-  font-weight: 700;
-  color: goldenrod;
-  width: 500px;
-  background: #fff;
+  /* font-size: 18px;
+  font-weight: 700; */
   display: flex;
   flex-direction: column;
   gap: 10px;
+  color: #fff;
+  width: 500px;
+  background: transparent;
+  border: 1px solid goldenrod;
   padding: 10px;
 }
