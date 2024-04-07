@@ -375,9 +375,9 @@ main{
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
+  top: -2px;
   left: 0;
-  right: -4px;
+  right: -7px;
   bottom: 0;
   background-color: #ccc;
   -webkit-transition: .4s;
@@ -392,6 +392,7 @@ main{
   width: 16px;
   left: 4px;
   bottom: 2px;
+  border: 1px solid #ccc;
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
