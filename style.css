@@ -21,6 +21,36 @@
 
   cursor: pointer;
 }
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .set-title {
+  background-color: #444;
+}
+
+.dark-mode .set-style {
+  border-bottom-color: #444;
+}
+
+.dark-mode .slider {
+  background-color: #666;
+}
+
+.dark-mode .slider:before {
+  background-color: #ccc;
+}
+
+.dark-mode input:checked + .slider {
+  background-color: goldenrod;
+}
+
+.dark-mode input:checked + .slider:before {
+  background-color: #fff;
+}
+
 nav{
   position: fixed;
   top: 0;
