@@ -318,21 +318,21 @@ main{
 .setting-container, 
 .account-container,
 .add-container{
-  display: flex;
-  height: 100vh;
   background: #fff;
 }
 .setting-box, 
 .account-box,
 .add-box{
-  width: 50%;
+  width: 100%;
   height: fit-content;
-  margin: auto;
-  border: 1px solid goldenrod;
 }
 .set-title, 
 .account-title,
 .add-title{
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   font-size: 24px;
   color:  #fff;
   background: goldenrod;
@@ -345,7 +345,8 @@ main{
   flex-direction: column;
   gap: 30px;
   width: 100%;
-  padding: 50px;
+  padding: 20px 50px;
+  margin-top: 65px;
 }
 .set-title i, 
 .account-title i,
