@@ -317,18 +317,18 @@ main{
 /* Account-Add-items-Settings */
 .setting-container, 
 .account-container,
-.add-container{
+.upload-container{
   background: #fff;
 }
 .setting-box, 
 .account-box,
-.add-box{
+.upload-box{
   width: 100%;
   height: fit-content;
 }
 .set-title, 
 .account-title,
-.add-title{
+.upload-title{
   position: fixed;
   top: 0;
   right: 0;
@@ -340,7 +340,7 @@ main{
 }
 .setting-content,
 .account-content,
-.add-content{
+.upload-content{
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -350,7 +350,7 @@ main{
 }
 .set-title i, 
 .account-title i,
-.add-title i{
+.upload-title i{
   font-size: 18px;
   color: #fff;
   margin-right: 10px;
