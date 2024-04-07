@@ -77,7 +77,8 @@ main{
   background: #fff;
   margin: 13px auto;
 }
-.search-bar input{
+.search-bar input,
+.search-bar input::placeholder{
   color: goldenrod;
   font-size: 18px;
   width: 100%;
@@ -177,12 +178,12 @@ main{
 .cart-txt{
   display: flex;
   justify-content: space-between;
-  padding: 19px 10px;
+  padding: 17px 10px;
   border-bottom: 1px solid goldenrod;
 }
 .cart-txt span{
   color: goldenrod;
-  font-size: 23px;
+  font-size: 20px;
 }
 .items-no{
   display: flex;
@@ -202,7 +203,7 @@ main{
   flex-direction: column;
   gap: 10px;
   overflow-y: auto;
-  height: 57.3vh;
+  height: 58.6vh;
   padding: 10px;
 }
 .empty-cart{
@@ -283,6 +284,16 @@ main{
   background: goldenrod;
 }
 
+@media print {
+  .item-box {
+    height: auto !important;
+  }
+  .item-lists {
+    height: auto !important;
+    overflow-y: visible !important;
+  }
+}
+
 /* Mini */
 @media (max-width: 630px){
   .search-bar{
@@ -291,4 +302,16 @@ main{
   .top-scroll{
     right: 265px;
   }
+}
+
+.item-list-container{
+  font-size: 18px;
+  font-weight: 700;
+  color: goldenrod;
+  width: 500px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }

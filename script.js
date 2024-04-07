@@ -116,8 +116,40 @@ printButton.addEventListener('click', () => {
 
 downloadButton.addEventListener('click', () => {
   let itemBox = document.querySelector('.item-box');
+  let itemLists = document.querySelector('.item-lists');
+  let itemListContainer = document.createElement('div');
+  itemListContainer.classList.add('item-list-container');
 
-  html2canvas(itemBox, {
+  // Add store name to the header
+  let headerDetails = document.createElement('div');
+  headerDetails.innerHTML = `
+  <div>CAMILI VENTURES AND LIMITED</div>
+  <div>Address: 10 Allen junction, opposite Uba ikeja lagos.</div>
+  <div>Date: ${new Date().toLocaleDateString()}</div>
+  <div>Time: ${new Date().toLocaleTimeString()}</div>
+  `;
+  headerDetails.style.fontWeight = 'bold';
+  headerDetails.style.fontSize = '30px';
+  headerDetails.style.marginBottom = '10px';
+  itemListContainer.appendChild(headerDetails);
+
+  // Clone the item-lists content into the container
+  itemListContainer.innerHTML += itemLists.innerHTML;
+
+  // Add additional content
+  let additionalContent = document.createElement('div');
+  additionalContent.innerHTML = `
+  <div>Note: Goods bought in good condition are not returnable.</div>
+  <div>No Refund of Cash Payment</div>
+  <div>ThANKS FOR YOUR PATRONAGE.....</div>
+  <div> Camali Ventures: Your Prefered Mall To Shop</div>
+  `;
+  itemListContainer.appendChild(additionalContent);
+
+  // Append the container to the body to capture its content
+  document.body.appendChild(itemListContainer);
+
+  html2canvas(itemListContainer, {
     onrendered: function(canvas) {
       let imgData = canvas.toDataURL('image/png');
       let a = document.createElement('a');
@@ -126,9 +158,14 @@ downloadButton.addEventListener('click', () => {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+
+      // Remove the container from the body
+      document.body.removeChild(itemListContainer);
     }
-  });  
+  });
 });
+
+
 
 // const download = document.getElementById('download');
 
