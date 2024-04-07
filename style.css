@@ -305,14 +305,12 @@ main{
 }
 
 .item-list-container{
-  /* font-size: 18px;
-  font-weight: 700; */
   display: flex;
   flex-direction: column;
   gap: 10px;
   color: #fff;
   width: 500px;
-  background: transparent;
+  background: #202020;
   border: 1px solid goldenrod;
   padding: 10px;
 }
