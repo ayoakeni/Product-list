@@ -314,7 +314,7 @@ main{
   padding: 10px;
 }
 
-
+/* Account-Add-items-Settings */
 .setting-container, 
 .account-container,
 .add-container{
@@ -338,6 +338,15 @@ main{
   background: goldenrod;
   padding: 15px;
 }
+.setting-content,
+.account-content,
+.add-content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  padding: 50px;
+}
 .set-title i, 
 .account-title i,
 .add-title i{
@@ -345,15 +354,88 @@ main{
   color: #fff;
   margin-right: 10px;
 }
-
-/* Settings */
-.setting-content{
+/* Profile */
+.profile{
+  margin: auto;
+}
+.profile-img{
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background: lightgray;
+  overflow: hidden;
+}
+.profile-img img{
+  width: 100%;
+}
+.account-content .info{
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  padding: 10px;
+}
+.account-content .info .name{
+  margin-bottom: 10px;
+}
+.account-content .info .name label{
+  font-size: 25px;
+  color: goldenrod;
+  margin-right: 7px;
+}
+.account-content .info .name span{
+  color: #000;
+}
+.account-content .info .address{
+  border-top: 1px solid goldenrod;
+  padding-top: 10px;
+}
+.account-content .info .address label{
+  font-size: 25px;
+  color: goldenrod;
+  margin-right: 7px;
+}
+.account-content .password{
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  padding: 10px;
+}
+.account-content .password span{
+  color: goldenrod;
+  font-size: 25px;
+}
+.account-content .password form{
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  width: 100%;
-  padding: 50px;
+  gap: 20px;
+  margin: 10px 0px;
 }
+.account-content .password form input[type="password"]{
+  outline-color: blue;
+  border: 1px solid goldenrod;
+  padding: 5px 8px;
+  background: transparent;
+}
+.account-content .password form .btn{
+  display: flex;
+}
+.account-content .password form input[type="submit"]{
+  color: goldenrod;
+  width: fit-content;
+  outline-color: blue;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  padding: 5px 8px;
+  background: transparent;
+  margin: auto;
+  cursor: pointer;
+}
+.account-content .password form input[type="submit"]:hover{
+  color: #fff;
+  background: goldenrod; 
+}
+.account-content .password form input[type="submit"]:active {
+  background: rgb(216, 193, 134);
+}
+/* Settings */
 .setting-content span{
   color: goldenrod;
 }
@@ -428,7 +510,7 @@ input:checked + .slider:before {
 }
 .reset{
   color: goldenrod;
-  width: 100px;
+  padding: 5px 10px;
   border: 1px solid goldenrod;
   border-radius: 5px;
   background: transparent;
