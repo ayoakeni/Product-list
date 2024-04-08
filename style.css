@@ -21,36 +21,23 @@
 
   cursor: pointer;
 }
+body {
+  color: var(--text-color);
+  background: var(--background-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+/* Common Styles */
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --accent-color: goldenrod;
+}
 /* Dark Mode Styles */
 .dark-mode {
-  background-color: #333;
-  color: #fff;
+  --background-color: #202020;
+  --text-color: #fff;
+  --accent-color: #fff;
 }
-
-.dark-mode .set-title {
-  background-color: #444;
-}
-
-.dark-mode .set-style {
-  border-bottom-color: #444;
-}
-
-.dark-mode .slider {
-  background-color: #666;
-}
-
-.dark-mode .slider:before {
-  background-color: #ccc;
-}
-
-.dark-mode input:checked + .slider {
-  background-color: goldenrod;
-}
-
-.dark-mode input:checked + .slider:before {
-  background-color: #fff;
-}
-
 nav{
   position: fixed;
   top: 0;
@@ -345,11 +332,11 @@ main{
 }
 
 /* Account-Add-items-Settings */
-.setting-container, 
+/* .setting-container, 
 .account-container,
 .upload-container{
   background: #fff;
-}
+} */
 .setting-box, 
 .account-box,
 .upload-box{
@@ -393,7 +380,11 @@ main{
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  background: lightgray;
+  background-image: url(image/flash-drive.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid goldenrod;
   overflow: hidden;
 }
 .profile-img img{
@@ -409,11 +400,11 @@ main{
 }
 .account-content .info .name label{
   font-size: 25px;
-  color: goldenrod;
+  color: var(--accent-color);
   margin-right: 7px;
 }
 .account-content .info .name span{
-  color: #000;
+  color: var(--text-color);
 }
 .account-content .info .address{
   border-top: 1px solid goldenrod;
@@ -421,8 +412,11 @@ main{
 }
 .account-content .info .address label{
   font-size: 25px;
-  color: goldenrod;
+  color: var(--accent-color);
   margin-right: 7px;
+}
+.account-content .info .address span{
+  color: var(--text-color);
 }
 .account-content .password{
   border: 1px solid goldenrod;
@@ -430,7 +424,7 @@ main{
   padding: 10px;
 }
 .account-content .password span{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 25px;
 }
 .account-content .password form{
@@ -451,7 +445,6 @@ main{
 .account-content .password form input[type="submit"]{
   color: goldenrod;
   width: fit-content;
-  outline-color: blue;
   border: 1px solid goldenrod;
   border-radius: 5px;
   padding: 5px 8px;
@@ -468,7 +461,7 @@ main{
 }
 /* Settings */
 .setting-content span{
-  color: goldenrod;
+  color: var(--accent-color);
 }
 .set-style{
   display: flex;
@@ -516,13 +509,13 @@ main{
   left: 4px;
   bottom: 2px;
   border: 1px solid #ccc;
-  background-color: white;
+  background-color: var(--background-color);
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
 }
 input:checked + .slider {
-  background-color: goldenrod;
+  background-color: var(--accent-color);
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
@@ -540,7 +533,7 @@ input:checked + .slider:before {
   display: flex;
 }
 .reset{
-  color: goldenrod;
+  color: var(--accent-color);
   padding: 5px 10px;
   border: 1px solid goldenrod;
   border-radius: 5px;

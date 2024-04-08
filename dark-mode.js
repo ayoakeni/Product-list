@@ -1,5 +1,5 @@
 // Toggle Darkmode
-// Function to toggle dark mode
+// Define the toggleDarkMode function
 function toggleDarkMode() {
   const darkModeCheckbox = document.getElementById('darkModeCheckbox');
   // Update UI
@@ -8,8 +8,18 @@ function toggleDarkMode() {
   localStorage.setItem('darkModeEnabled', darkModeCheckbox.checked);
 }
 
-// Check if dark mode was previously enabled
-const darkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
-// Set initial state
-document.body.classList.toggle('dark-mode', darkModeEnabled);
-document.getElementById('darkModeCheckbox').checked = darkModeEnabled;
+// Add event listener to the checkbox
+document.addEventListener('DOMContentLoaded', () => {
+  const darkModeCheckbox = document.getElementById('darkModeCheckbox');
+  // Check if dark mode was previously enabled
+  const darkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
+  // Set initial state
+  document.body.classList.toggle('dark-mode', darkModeEnabled);
+  // Set checkbox state
+  darkModeCheckbox.checked = darkModeEnabled;
+
+  // Attach the event listener to the checkbox
+  darkModeCheckbox.addEventListener('change', toggleDarkMode);
+});
+
+
