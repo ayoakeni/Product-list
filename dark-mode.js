@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set initial state
   document.body.classList.toggle('dark-mode', darkModeEnabled);
   // Set checkbox state
-  darkModeCheckbox.checked = darkModeEnabled;
+  // darkModeCheckbox.checked = darkModeEnabled;
+  darkModeCheckbox.classList.toggle('active');
 
   // Attach the event listener to the checkbox
   darkModeCheckbox.addEventListener('change', toggleDarkMode);
