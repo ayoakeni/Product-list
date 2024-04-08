@@ -45,6 +45,7 @@ nav{
   right: 0;
   background: goldenrod;
   padding: 20px;
+  z-index: 2;
 }
 nav .store-name{
   font-size: 25px;
@@ -69,11 +70,10 @@ main{
   flex-direction: column;
   justify-content: space-around;
   padding: 20px;
-  background: #fff;
   border-right: 1px solid goldenrod;
 }
 .side-bar i{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 30px;
 }
 .container{
@@ -83,19 +83,17 @@ main{
   display: flex;
   height: fit-content;
   border-bottom: 1px solid goldenrod;
-  background: #fff;
 }
 .search-bar{
   display: flex;
   align-items: center;
   width: 50%;
   border: 1px solid goldenrod;
-  background: #fff;
   margin: 13px auto;
 }
 .search-bar input,
 .search-bar input::placeholder{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 18px;
   width: 100%;
   padding: 5px;
@@ -105,7 +103,7 @@ main{
   outline: none;
 }
 .search i{  
-  color: goldenrod;
+  color: var(--accent-color);
   padding: 5px;
 }
 .box{
@@ -113,7 +111,6 @@ main{
   height: 79.2vh;
   padding: 20px;
   overflow-y: scroll;
-  background: #fff;
 }
 .content-box{
   display: flex;
@@ -127,7 +124,6 @@ main{
   gap: 0;
   width: fit-content;
   height: fit-content;
-  background: #fff;
   border: 1px solid goldenrod;
 }
 .content img{
@@ -139,7 +135,7 @@ main{
   display: flex;
   flex-direction: column;
   padding: 10px;
-  color: goldenrod;
+  color: var(--accent-color);
   border-top: 1px solid goldenrod;
 }
 .details span:first-child{
@@ -151,7 +147,7 @@ main{
   font-weight: 700;
 }
 .details button{
-  color: goldenrod;
+  color: var(--accent-color);
   font-weight: 700;
   border: 1px solid goldenrod;
   background: transparent;
@@ -169,7 +165,7 @@ main{
   justify-content: center;
   align-items: center;
   height: 100%;
-  color: goldenrod;
+  color: var(--accent-color);
 }
 .not-found i{
   font-size: 30px;
@@ -183,13 +179,12 @@ main{
   position: fixed;
   right: 375px;
   bottom: 20px;
-  color: goldenrod;
+  color: var(--accent-color);
   cursor: pointer;
 }
 .preview-board{
   width: 500px;
   border-left: 1px solid goldenrod;
-  background: #fff;
 }
 .cart-txt{
   display: flex;
@@ -198,7 +193,7 @@ main{
   border-bottom: 1px solid goldenrod;
 }
 .cart-txt span{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 20px;
 }
 .items-no{
@@ -206,11 +201,11 @@ main{
   align-items: center;
 }
 .items-no i{
-  color: goldenrod;
+  color: var(--accent-color);
   margin-right: 5px;
 }
 .items-no span{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 20px;
   font-weight: bold;
 }
@@ -226,7 +221,7 @@ main{
   display: flex;
   align-items: center;
   margin: auto;
-  color: goldenrod;
+  color: var(--accent-color);
   height: 100%;
 }
 .items{
@@ -273,7 +268,7 @@ main{
 .total{
   display: flex;
   justify-content: flex-end;
-  color: goldenrod;
+  color: var(--accent-color);
   font-weight: bold;
   border-top: 1px solid goldenrod;
   padding: 10px 0px;
@@ -287,7 +282,7 @@ main{
   border-top: 1px solid goldenrod;
 }
 .print-download button{
-  color: goldenrod;
+  color: var(--accent-color);
   font-size: 18px;
   padding: 5px;
   border: 1px solid goldenrod;
@@ -330,13 +325,6 @@ main{
   border: 1px solid goldenrod;
   padding: 10px;
 }
-
-/* Account-Add-items-Settings */
-/* .setting-container, 
-.account-container,
-.upload-container{
-  background: #fff;
-} */
 .setting-box, 
 .account-box,
 .upload-box{
