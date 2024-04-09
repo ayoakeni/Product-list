@@ -1,12 +1,4 @@
-// Splash Screen
-document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
-    document.getElementById("splash-screen").style.display = "none";
-    document.getElementById("content-body").style.display = "block";
-  }, 3000); // Display splash screen for 3 seconds
-});
-
-// On boarding
+// Splash Screen &  On boarding
 let currentScreen = 0;
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -25,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
     screens[0].style.display = "block";
   }
 });
-
 function nextScreen() {
   const screens = document.querySelectorAll(".onboarding-screen");
   if (currentScreen < screens.length - 1) {
@@ -40,7 +31,6 @@ function nextScreen() {
     document.getElementById("content-body").style.display = "block";
   }
 }
-
 function startApp() {
   document.getElementById("onboarding").style.display = "none";
   document.getElementById("content-body").style.display = "block";
