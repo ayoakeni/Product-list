@@ -138,7 +138,7 @@ input:checked + .slider:before {
   width: 350px;
   height: 350px;
 }
-/* On boarding */
+/* Onboarding */
 .onboarding {
   display: none;
   flex-direction: column;
@@ -153,32 +153,26 @@ input:checked + .slider:before {
   z-index: 8888;
 }
 .onboarding-screen {
-  display: none;
+  display: none; /* Hide all onboarding screens by default */
   width: 50%;
   text-align: center;
   padding: 20px;
 }
-/* Show the onboarding screen only for the first user */
-/* Check if the firstUserCompletedOnboarding flag is not set */
-/* If not set, display the onboarding screen */
-.onboarding:not([data-first-user]) {
+/* Show the onboarding screen only if onboardingCompleted flag is not set */
+.onboarding:not([data-first-user="true"]) {
   display: flex;
 }
-.onboarding-screen[data-first-user="true"],
-.onboarding-screen:not([data-first-user]) {
-  display: block;
-}
-.onboarding-screen h1{
+.onboarding-screen h1 {
   color: lightgreen;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 10px;
 }
-.onboarding-screen p{
+.onboarding-screen p {
   color: #fff;
   margin-bottom: 10px;
 }
-.onboarding-screen button{
+.onboarding-screen button {
   color: #fff;
   background: #202020;
   border: none;
