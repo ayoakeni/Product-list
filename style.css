@@ -158,6 +158,16 @@ input:checked + .slider:before {
   text-align: center;
   padding: 20px;
 }
+/* Show the onboarding screen only for the first user */
+/* Check if the firstUserCompletedOnboarding flag is not set */
+/* If not set, display the onboarding screen */
+.onboarding:not([data-first-user]) {
+  display: flex;
+}
+.onboarding-screen[data-first-user="true"],
+.onboarding-screen:not([data-first-user]) {
+  display: block;
+}
 .onboarding-screen h1{
   color: lightgreen;
   font-size: 40px;
