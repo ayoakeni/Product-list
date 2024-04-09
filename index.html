@@ -12,151 +12,173 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
-    <nav>
-      <span class="store-name">CAMILI VENTURES and LIMITED</span>
-      <!-- <label class="switch">
-        <input type="checkbox" id="darkModeCheckbox">
-        <span class="slider round"></span>
-      </label> -->
-      <div class="toggle-container" id="darkModeCheckbox">
-        <!-- The circle inside the toggle -->
-        <div class="toggle-circle"></div>
+    <div class="splash-screen" id="splash-screen">
+      <img src="logo/teeya-logo.png" alt="Logo">
+    </div>
+    <div class="onboarding" id="onboarding">
+      <div class="onboarding-screen">
+        <h1>Welcome to Teeya App</h1>
+        <p>This app helps you manage your shopping list and find the best deals on products.</p>
+        <button onclick="nextScreen()">Next</button>
       </div>
-    </nav>
-    <main>
-      <div class="frame">
-        <div class="side-bar">
-          <a href="account.html" title="Account"><i class="fa-regular fa-user"></i></a>
-          <a href="upload.html" title="Add items"><i class="fa-solid fa-circle-plus"></i></a>
-          <a href="settings.html" title="Settings"><i class="fa-solid fa-gear"></i></a>
-        </div>
-        <div class="container">
-          <div class="search">
-            <div class="search-bar">
-              <input type="search" placeholder="search for items here">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-          </div>
-          <div class="box">
-            <div class="content-box" id="scroll-top">
-              <div class="content">
-                <img src="image/headset-pro.jpg" alt="img">
-                <div class="details">
-                  <span>Head Set Pro</span>
-                  <span>Price: $20.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/iphone.jpg" alt="img">
-                <div class="details">
-                  <span>Iphone 7+</span>
-                  <span>Price: $50.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/hard-drive.jpg" alt="img">
-                <div class="details">
-                  <span>Hard-drive</span>
-                  <span>Price: $70.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/laptop.jpg" alt="img">
-                <div class="details">
-                  <span>Laptop</span>
-                  <span>Price: $207.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/vr-headset.jpg" alt="img">
-                <div class="details">
-                  <span>VR head set</span>
-                  <span>Price: $105.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/camera.jpg" alt="img">
-                <div class="details">
-                  <span>Camera</span>
-                  <span>Price: $500.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/wrist-watch.jpg" alt="img">
-                <div class="details">
-                  <span>Wrist watch</span>
-                  <span>Price: $722.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/flash-drive.jpg" alt="img">
-                <div class="details">
-                  <span>Flash drive</span>
-                  <span>Price: $15.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/headset.jpg" alt="img">
-                <div class="details">
-                  <span>Head set</span>
-                  <span>Price: $24.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/blutooh.jpg" alt="img">
-                <div class="details">
-                  <span>Bluetooh</span>
-                  <span>Price: $27.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/power-bank.jpg" alt="img">
-                <div class="details">
-                  <span>power-bank</span>
-                  <span>Price: $35.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-              <div class="content">
-                <img src="image/mouse.jpg" alt="img">
-                <div class="details">
-                  <span>Mouse</span>
-                  <span>Price: $7.99</span>
-                  <button>Add to cart</button>
-                </div>
-              </div>
-            </div>
-            <div class="not-found"><i class="fa-solid fa-ban"></i><span>Item not found</span></div>
-            <a href="#scroll-top" class="top-scroll"><i class="fa-solid fa-circle-chevron-up"></i></a>
-          </div>
-        </div>
-        <div class="preview-board">
-          <div class="cart-txt"><span>Cart</span><div class="items-no"><i class="fa-solid fa-cart-plus"></i><span id="items-no">0</span></div></div>
-          <div class="item-box">
-            <div class="item-lists">
-              <div class="empty-cart">cart empty</div>
-            </div>
-            <div class="total">
-              <span>Total: $0.00</span>
-            </div>
-          </div>
-          <div class="print-download">
-            <button id="print">Print</button>
-            <button id="download">Download</button>
-          </div>
-        </div>
+      <div class="onboarding-screen">
+        <h1>Track Your Shopping</h1>
+        <p>Keep track of the items you need to buy and easily add them to your cart.</p>        
+        <button onclick="nextScreen()">Next</button>
       </div>
-    </main>
+      <div class="onboarding-screen">
+        <h1>Get Notified</h1>
+        <p>Receive notifications about special offers and discounts on your favorite products.</p>        
+        <button onclick="startApp()">Start App</button>
+      </div>
+    </div>
+    <div class="content-body" id="content-body">
+      <nav>
+        <span class="store-name">CAMILI VENTURES and LIMITED</span>
+        <!-- <label class="switch">
+          <input type="checkbox" id="darkModeCheckbox">
+          <span class="slider round"></span>
+        </label> -->
+        <div class="toggle-container" id="darkModeCheckbox">
+          <!-- The circle inside the toggle -->
+          <div class="toggle-circle"></div>
+        </div>
+      </nav>
+      <main>
+        <div class="frame">
+          <div class="side-bar">
+            <a href="account.html" title="Account"><i class="fa-regular fa-user"></i></a>
+            <a href="upload.html" title="Add items"><i class="fa-solid fa-circle-plus"></i></a>
+            <a href="settings.html" title="Settings"><i class="fa-solid fa-gear"></i></a>
+          </div>
+          <div class="container">
+            <div class="search">
+              <div class="search-bar">
+                <input type="search" placeholder="search for items here">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+            <div class="box">
+              <div class="content-box" id="scroll-top">
+                <div class="content">
+                  <img src="image/headset-pro.jpg" alt="img">
+                  <div class="details">
+                    <span>Head Set Pro</span>
+                    <span>Price: $20.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/iphone.jpg" alt="img">
+                  <div class="details">
+                    <span>Iphone 7+</span>
+                    <span>Price: $50.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/hard-drive.jpg" alt="img">
+                  <div class="details">
+                    <span>Hard-drive</span>
+                    <span>Price: $70.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/laptop.jpg" alt="img">
+                  <div class="details">
+                    <span>Laptop</span>
+                    <span>Price: $207.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/vr-headset.jpg" alt="img">
+                  <div class="details">
+                    <span>VR head set</span>
+                    <span>Price: $105.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/camera.jpg" alt="img">
+                  <div class="details">
+                    <span>Camera</span>
+                    <span>Price: $500.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/wrist-watch.jpg" alt="img">
+                  <div class="details">
+                    <span>Wrist watch</span>
+                    <span>Price: $722.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/flash-drive.jpg" alt="img">
+                  <div class="details">
+                    <span>Flash drive</span>
+                    <span>Price: $15.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/headset.jpg" alt="img">
+                  <div class="details">
+                    <span>Head set</span>
+                    <span>Price: $24.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/blutooh.jpg" alt="img">
+                  <div class="details">
+                    <span>Bluetooh</span>
+                    <span>Price: $27.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/power-bank.jpg" alt="img">
+                  <div class="details">
+                    <span>power-bank</span>
+                    <span>Price: $35.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+                <div class="content">
+                  <img src="image/mouse.jpg" alt="img">
+                  <div class="details">
+                    <span>Mouse</span>
+                    <span>Price: $7.99</span>
+                    <button>Add to cart</button>
+                  </div>
+                </div>
+              </div>
+              <div class="not-found"><i class="fa-solid fa-ban"></i><span>Item not found</span></div>
+              <a href="#scroll-top" class="top-scroll"><i class="fa-solid fa-circle-chevron-up"></i></a>
+            </div>
+          </div>
+          <div class="preview-board">
+            <div class="cart-txt"><span>Cart</span><div class="items-no"><i class="fa-solid fa-cart-plus"></i><span id="items-no">0</span></div></div>
+            <div class="item-box">
+              <div class="item-lists">
+                <div class="empty-cart">cart empty</div>
+              </div>
+              <div class="total">
+                <span>Total: $0.00</span>
+              </div>
+            </div>
+            <div class="print-download">
+              <button id="print">Print</button>
+              <button id="download">Download</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
     <!-- Html2canvas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
     <!-- Pdf generator -->

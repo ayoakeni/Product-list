@@ -119,6 +119,68 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/* Splash Screen */
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(goldenrod, #202020);
+  z-index: 9999;
+}
+.splash-screen img {
+  width: 350px;
+  height: 350px;
+}
+/* On boarding */
+.onboarding {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: goldenrod;
+  z-index: 8888;
+}
+.onboarding-screen {
+  display: none;
+  width: 50%;
+  text-align: center;
+  padding: 20px;
+}
+.onboarding-screen h1{
+  color: lightgreen;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.onboarding-screen p{
+  color: #fff;
+  margin-bottom: 10px;
+}
+.onboarding-screen button{
+  color: #fff;
+  background: #202020;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.content-body {
+  display: none;
+  overflow: hidden;
+  height: 100vh;
+}
 nav{
   position: fixed;
   top: 0;
@@ -143,7 +205,8 @@ main{
 }
 .frame{
   position: fixed;
-  top: 76px;
+  /* top: 76px; */
+  top: 69px;
   right: 0;
   left: 0;
   bottom: 0;
@@ -196,7 +259,8 @@ main{
 }
 .box{
   width: 100%;
-  height: 78.1vh;
+  /* height: 78.1vh; */
+  height: 79.8vh;
   padding: 20px;
   overflow-y: scroll;
 }
