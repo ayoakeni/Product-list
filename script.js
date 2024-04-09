@@ -1,6 +1,13 @@
 // Splash Screen & Onboarding
 let currentScreen = 0;
 
+function startApp() {
+  // Set the flag indicating that onboarding is completed
+  localStorage.setItem("onboardingCompleted", "true");
+  document.getElementById("onboarding").style.display = "none";
+  document.getElementById("content-body").style.display = "block";
+}
+
 document.addEventListener("DOMContentLoaded", function() {
   setTimeout(function() {
     document.getElementById("splash-screen").style.display = "none";
@@ -26,11 +33,6 @@ function nextScreen() {
     localStorage.setItem("onboardingCompleted", true);
     startApp();
   }
-}
-
-function startApp() {
-  document.getElementById("onboarding").style.display = "none";
-  document.getElementById("content-body").style.display = "block";
 }
 
 // Search input
