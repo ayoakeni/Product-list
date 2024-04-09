@@ -1,6 +1,4 @@
 // Splash Screen &  On boarding
-let currentScreen = 0;
-
 document.addEventListener("DOMContentLoaded", function() {
   setTimeout(function() {
     document.getElementById("splash-screen").style.display = "none";
@@ -8,15 +6,19 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 3000); // Display splash screen for 3 seconds
 
   const screens = document.querySelectorAll(".onboarding-screen");
-  if (localStorage.getItem("onboardingCompleted")) {
-    // Onboarding already completed, hide the onboarding screen
+  if (!localStorage.getItem("firstUserCompletedOnboarding")) {
+    // First user, show the onboarding screen
+    screens[0].style.display = "block";
+  } else if (!localStorage.getItem("onboardingCompleted")) {
+    // Onboarding not completed, show the onboarding screen
+    screens[0].style.display = "block";
+  } else {
+    // Onboarding completed, hide the onboarding screen
     document.getElementById("onboarding").style.display = "none";
     document.getElementById("content-body").style.display = "block";
-  } else {
-    // Onboarding not completed, show the first screen
-    screens[0].style.display = "block";
   }
 });
+
 function nextScreen() {
   const screens = document.querySelectorAll(".onboarding-screen");
   if (currentScreen < screens.length - 1) {
@@ -24,6 +26,10 @@ function nextScreen() {
     currentScreen++;
     screens[currentScreen].style.display = "block";
   } else {
+    if (!localStorage.getItem("firstUserCompletedOnboarding")) {
+      // First user completed onboarding, set flag
+      localStorage.setItem("firstUserCompletedOnboarding", true);
+    }
     // Onboarding completed, save the completion status
     localStorage.setItem("onboardingCompleted", true);
     // Hide the onboarding screen and show the app content
@@ -31,10 +37,12 @@ function nextScreen() {
     document.getElementById("content-body").style.display = "block";
   }
 }
+
 function startApp() {
   document.getElementById("onboarding").style.display = "none";
   document.getElementById("content-body").style.display = "block";
 }
+
 
 
 // Search input
