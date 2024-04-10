@@ -169,19 +169,24 @@ function checkCartEmpty() {
   }
 }
 
-// Print and Download
+// For Printing
 const printButton = document.getElementById('print');
-const downloadButton = document.getElementById('download');
-
 printButton.addEventListener('click', () => {
-  let printContents = document.querySelector('.item-box').innerHTML;
-  let originalContents = document.body.innerHTML;
+  const printingEnabled = localStorage.getItem('printingEnabled') === 'true';
+  if (printingEnabled) {
+    let printContents = document.querySelector('.item-box').innerHTML;
+    let originalContents = document.body.innerHTML;
 
-  document.body.innerHTML = printContents;
-  window.print();
-  document.body.innerHTML = originalContents;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+  } else {
+    alert('Printing is disabled. Enable printing in settings to use this feature.');
+  }
 });
 
+// For Download
+const downloadButton = document.getElementById('download');
 downloadButton.addEventListener('click', () => {
   let itemBox = document.querySelector('.item-box');
   let itemLists = document.querySelector('.item-lists');

@@ -41,7 +41,7 @@ body {
   display: inline-block;
   width: 40px;
   height: 20px;
-  background-color: #ccc;
+  background: #ccc;
   border-radius: 20px;
   position: relative;
   cursor: pointer;
@@ -55,14 +55,24 @@ body {
   width: 16px;
   height: 16px;
   border: 1px solid #ccc; 
-  background-color: var(--background-color);
+  background: #fff;
   border-radius: 50%;
   transition: transform 0.3s;
 }
-/* Move the circle to the right when the toggle is on */
-.toggle-container.active .toggle-circle {
-  transform: translateY(-50%) translateX(18px);
+#printCheckbox.active,
+#cloudStorageCheckbox.active,
+#updateCheckbox.active{
+  background: var(--accent-color);
 }
+/* Move the circle to the right when the toggle is on */
+#darkMode.active .toggle-circle,
+#printCheckbox.active .toggle-circle,
+#cloudStorageCheckbox.active .toggle-circle,
+#updateCheckbox.active .toggle-circle{
+  transform: translateY(-50%) translateX(18px);
+  background: var(--background-color);
+}
+
 /* Splash Screen */
 .splash-screen {
   display: flex;
