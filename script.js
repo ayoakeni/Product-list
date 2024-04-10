@@ -9,10 +9,19 @@ function startApp() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  setTimeout(function() {
+  const splashShown = sessionStorage.getItem("splashShown");
+
+  if (!splashShown) {
+    // Show the splash screen
+    document.getElementById("splash-screen").style.display = "block";
+    setTimeout(function() {
+      document.getElementById("splash-screen").style.display = "none";
+      sessionStorage.setItem("splashShown", "true");
+    }, 3000); // Display splash screen for 3 seconds
+  } else {
     document.getElementById("splash-screen").style.display = "none";
     document.getElementById("content-body").style.display = "block";
-  }, 3000); // Display splash screen for 3 seconds
+  }
 
   const screens = document.querySelectorAll(".onboarding-screen");
   if (!localStorage.getItem("onboardingCompleted")) {
@@ -20,6 +29,11 @@ document.addEventListener("DOMContentLoaded", function() {
   } else {
     document.getElementById("onboarding").style.display = "none";
     document.getElementById("content-body").style.display = "block";
+  }
+
+  const backButton = document.querySelector(".set-title a");
+  if (backButton) {
+    backButton.addEventListener("click", goBack);
   }
 });
 
@@ -30,10 +44,26 @@ function nextScreen() {
     currentScreen++;
     screens[currentScreen].style.display = "block";
   } else {
-    localStorage.setItem("onboardingCompleted", true);
+    localStorage.setItem("onboardingCompleted", "true");
     startApp();
   }
 }
+
+function goBack() {
+  const currentUrl = window.location.href;
+  const mainPageUrl = "index.html"; // Replace this with the URL of your main page
+  const isMainPage = currentUrl.endsWith(mainPageUrl);
+
+  if (isMainPage) {
+    const splashScreen = document.getElementById("splash-screen");
+    if (splashScreen) {
+      splashScreen.style.display = "none";
+    }
+  }
+
+  history.back();
+}
+
 
 // Search input
 const searchInput = document.querySelector('input[type="search"]');
