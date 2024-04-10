@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const contentBody = document.getElementById('content-body');
 
   // Hide the splash screen and display the login container
-  splashScreen.style.display = 'none';
+  // splashScreen.style.display = 'none';
   loginContainer.style.display = 'flex';
 
   // Retrieve the stored password from localStorage
-  const storedPassword = localStorage.getItem('password');
+  const storedPassword = localStorage.getItem('password') || '12345'; // Default password
 
   // Submit the login form
   document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -22,5 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       alert('Incorrect password. Please try again.');
     }
+  });
+
+  // Handle the "Forgot Password?" link click
+  document.getElementById('forgotPasswordLink').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Implement your logic to handle the password reset process, such as showing a modal or redirecting to a password reset page
+    alert('Forgot Password functionality not implemented.');
   });
 });
