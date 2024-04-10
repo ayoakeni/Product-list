@@ -25,6 +25,57 @@ body {
   background: var(--background-color);
   transition: background-color 0.3s, color 0.3s;
 }
+.login-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: goldenrod;
+  z-index: 9888;
+}
+.login-box{
+  width: fit-content;
+  padding: 20px;
+  height: auto;
+  border-radius: 5px;
+  background: #fff;
+  margin: auto;
+}
+.login-title h2{
+  color: goldenrod;
+  margin-bottom: 10px;
+}
+.login-content form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.pass-enter{
+  color: goldenrod;
+}
+.login-content form button{
+  color: goldenrod;
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  background: transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.login-content form button:hover{
+  color: #fff;
+  background: goldenrod; 
+}
+.login-content form button:active {
+  background: rgb(216, 193, 134);
+}
+
 /* Common Styles */
 :root {
   --background-color: #fff;
