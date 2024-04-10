@@ -1,26 +1,27 @@
-// Toggle Darkmode
-// Define the toggleDarkMode function
+// Function to toggle dark mode and update styles
 function toggleDarkMode() {
-  const darkModeCheckbox = document.getElementById('darkModeCheckbox');
-  // Update UI
-  document.body.classList.toggle('dark-mode', darkModeCheckbox.checked);
-  // Save state to localStorage
-  localStorage.setItem('darkModeEnabled', darkModeCheckbox.checked);
+  const isDarkMode = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 }
 
-// Add event listener to the checkbox
-document.addEventListener('DOMContentLoaded', () => {
-  const darkModeCheckbox = document.getElementById('darkModeCheckbox');
-  // Check if dark mode was previously enabled
-  const darkModeEnabled = localStorage.getItem('darkModeEnabled') === 'true';
-  // Set initial state
-  document.body.classList.toggle('dark-mode', darkModeEnabled);
-  // Set checkbox state
-  // darkModeCheckbox.checked = darkModeEnabled;
-  darkModeCheckbox.classList.toggle('active');
+// Initialize dark mode state and apply styles
+document.addEventListener('DOMContentLoaded', function() {
+  const darkModeState = localStorage.getItem('darkMode');
+  const isDarkMode = darkModeState === 'enabled';
 
-  // Attach the event listener to the checkbox
-  darkModeCheckbox.addEventListener('change', toggleDarkMode);
+  // Apply dark mode to the body
+  document.body.classList.toggle('dark-mode', isDarkMode);
+
+  // Set the initial state of the toggle container
+  const toggleContainer = document.getElementById('darkMode');
+  toggleContainer.classList.toggle('active', isDarkMode);
+
+  // Add click event listener to the toggle container
+  toggleContainer.addEventListener('click', () => {
+    // Toggle dark mode
+    toggleDarkMode();
+
+    // Update the 'active' class on the toggle container
+    toggleContainer.classList.toggle('active');
+  });
 });
-
-

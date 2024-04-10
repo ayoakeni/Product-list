@@ -46,7 +46,6 @@ body {
   position: relative;
   cursor: pointer;
 }
-
 /* The circle inside the toggle */
 .toggle-circle {
   position: absolute;
@@ -55,69 +54,14 @@ body {
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background-color: white;
+  border: 1px solid #ccc; 
+  background-color: var(--background-color);
   border-radius: 50%;
   transition: transform 0.3s;
 }
-
 /* Move the circle to the right when the toggle is on */
 .toggle-container.active .toggle-circle {
   transform: translateY(-50%) translateX(18px);
-}
-/* Style the switch */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 45px;
-  height: 20px;
-}
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-/* The slider (circle) */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: -2px;
-  left: 0;
-  right: -7px;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
-}
-/* Rounded sliders */
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 2px;
-  border: 1px solid #ccc;
-  background-color: var(--background-color);
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 50%;
-}
-input:checked + .slider {
-  background-color: var(--accent-color);
-}
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-.slider.round:before {
-  border-radius: 50%;
 }
 /* Splash Screen */
 .splash-screen {
@@ -498,6 +442,9 @@ main{
   top: 0;
   right: 0;
   left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 24px;
   color:  #fff;
   background: goldenrod;
@@ -513,12 +460,19 @@ main{
   padding: 20px 50px;
   margin-top: 65px;
 }
+.set-title a, 
+.account-title a,
+.upload-title a{
+  font-size: 20px;
+  color: #fff;
+  margin-right: 10px;
+  text-decoration: none;
+}
 .set-title i, 
 .account-title i,
 .upload-title i{
   font-size: 18px;
-  color: #fff;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 /* Profile */
 .profile{
