@@ -24,3 +24,18 @@ const updateCheckbox = document.getElementById('updateCheckbox');
 updateCheckbox.addEventListener('click', function() {
   updateCheckbox.classList.toggle('active');
 });
+
+
+// Reset button
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', function() {
+  // Reset printing toggle
+  printCheckbox.classList.remove('active');
+  localStorage.setItem('printingEnabled', 'false');
+  
+  // Reset cloud storage toggle
+  cloudStorageCheckbox.classList.remove('active');
+  
+  // Reset update toggle
+  updateCheckbox.classList.remove('active');
+});
