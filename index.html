@@ -62,7 +62,7 @@
         <div class="frame">
           <div class="side-bar">
             <a href="account.html" title="Account"><i class="fa-regular fa-user"></i></a>
-            <a href="upload.html" title="Add items"><i class="fa-solid fa-circle-plus"></i></a>
+            <div title="Add items" onclick="openPopup()"><i class="fa-solid fa-circle-plus"></i></div>
             <a href="settings.html" title="Settings"><i class="fa-solid fa-gear"></i></a>
           </div>
           <div class="container">
@@ -189,6 +189,31 @@
               <button id="print">Print</button>
               <button id="download">Download</button>
             </div>
+          </div>
+        </div>
+        <div class="upload-popup" id="upload-popup">
+          <div class="popup-content">
+            <div class="upload-title">
+              <h2>Upload Product Information</h2>
+              <span class="close-btn" onclick="closePopup()"><i class="fa-solid fa-x"></i></span>
+            </div>
+            <form id="uploadForm">
+              <div class="upl-txt">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" placeholder="enter product name" required>
+              </div>
+              <div class="upl-txt">
+                <label for="productImage">Choose Image:</label>
+                <input type="file" id="productImage" name="productImage" required>
+              </div>
+              <div class="upl-txt">
+                <label for="productPrice">Price:</label>
+                <input type="number" id="productPrice" name="productPrice" placeholder="enter price" required>
+              </div>
+              <div class="up-ld">
+                <button type="submit">Upload</button>
+              </div>
+            </form>
           </div>
         </div>
       </main>

@@ -231,6 +231,7 @@ main{
   color: var(--accent-color);
   font-size: 30px;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .side-bar i:hover{
   color: goldenrod;
@@ -344,6 +345,98 @@ main{
 }
 .top-scroll:hover{
   color: goldenrod;
+}
+/* Upload */
+.upload-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+}
+
+.popup-content {
+  background-color: var(--background-color);
+  margin: 15% auto;
+  border: 1px solid goldenrod;
+  width: 80%;
+  max-width: 600px;
+}
+.upload-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: goldenrod;
+}
+.upload-title h2{
+  color: #fff;
+  font-size: 24px;
+}
+.close-btn i{
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.close-btn i:hover{
+  color: #d6d3d3;
+}
+.popup-content form{
+  padding: 20px;
+}
+.upl-txt{
+  margin-bottom: 20px;
+}
+.upl-txt label{
+  color: var(--accent-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+#productName{
+  font-size: 18px;
+  color: goldenrod;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  padding: 5px;
+  outline-color: gold;
+}
+#productImage{
+  font-size: 18px;
+  color: goldenrod;
+  outline-color: gold;
+}
+#productPrice{
+  font-size: 18px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  width: 150px;
+  padding: 5px;
+  outline-color: gold;
+}
+.up-ld{
+  display: flex;
+  justify-content: end;
+}
+.popup-content form button{
+  color: goldenrod;
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  background: transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.popup-content form button:hover{
+  color: #fff;
+  background: goldenrod; 
+}
+.popup-content form button:active {
+  background: rgb(216, 193, 134);
 }
 .preview-board{
   width: 500px;
@@ -495,8 +588,7 @@ main{
   height: fit-content;
 }
 .set-title, 
-.account-title,
-.upload-title{
+.account-title{
   position: fixed;
   top: 0;
   right: 0;
@@ -510,8 +602,7 @@ main{
   padding: 15px;
 }
 .setting-content,
-.account-content,
-.upload-content{
+.account-content{
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -520,16 +611,14 @@ main{
   margin-top: 65px;
 }
 .set-title a, 
-.account-title a,
-.upload-title a{
+.account-title a{
   font-size: 20px;
   color: #fff;
   margin-right: 10px;
   text-decoration: none;
 }
 .set-title i, 
-.account-title i,
-.upload-title i{
+.account-title i{
   font-size: 18px;
   margin-right: 5px;
 }

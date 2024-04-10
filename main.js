@@ -169,6 +169,24 @@ function checkCartEmpty() {
   }
 }
 
+// Upload
+function openPopup() {
+  document.getElementById("upload-popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("upload-popup").style.display = "none";
+}
+
+// Handle form submission
+document.getElementById("uploadForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  // Process form data here (e.g., send it to server, add content-box, etc.)
+  // After processing, you can close the popup
+  closePopup();
+});
+
+
 // For Printing
 const printButton = document.getElementById('print');
 printButton.addEventListener('click', () => {
