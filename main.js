@@ -178,13 +178,111 @@ function closePopup() {
   document.getElementById("upload-popup").style.display = "none";
 }
 
-// Handle form submission
-document.getElementById("uploadForm").addEventListener("submit", function(event) {
+function handleImageUpload(event) {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    const imagePreview = document.createElement('img');
+    imagePreview.src = e.target.result;
+    imagePreview.alt = 'img';
+    imagePreview.width = 180;
+    imagePreview.height = 130;
+
+    const uploadPopup = document.querySelector('.upload-popup');
+    const uploadContent = uploadPopup.querySelector('.popup-content');
+    const uploadTitle = uploadPopup.querySelector('.upload-title');
+
+    uploadContent.insertBefore(imagePreview, uploadTitle.nextSibling);
+  };
+
+  reader.readAsDataURL(file);
+}
+
+function addToCart(productName, productPrice) {
+  let item = document.querySelector(`.item-lists .items[data-name="${productName}"]`);
+  if (item) {
+    let quantityElement = item.querySelector('.p-q span:nth-child(2)');
+    let quantity = parseInt(quantityElement.innerText.split(': ')[1]);
+    quantityElement.innerText = `Quantity: ${quantity + 1}`;
+  } else {
+    item = document.createElement('div');
+    item.classList.add('items');
+    item.setAttribute('data-name', productName);
+    item.innerHTML = `
+      <img src="image/${productName.toLowerCase().replace(/\s/g, '-')}.jpg" alt="${productName}">
+      <div class="item-txt">
+        <span class="product">${productName}</span>
+        <div class="p-q">
+          <span>Price: $${productPrice.toFixed(2)}</span>
+          <span>Quantity: 1</span>
+        </div>
+        <span class="close"><i class="fa-regular fa-circle-xmark"></i></span>
+      </div>
+    `;
+
+    // Append the item to the end of the cart list
+    itemList.appendChild(item);
+    let itemList = document.querySelector('.item-lists');
+    itemList.appendChild(item);
+    
+    let closeButton = item.querySelector('.close');
+    closeButton.addEventListener('click', () => {
+      item.remove();
+      updateTotalPrice();
+      updateCartQuantity();
+      checkCartEmpty();
+    });
+  }
+
+  totalPrice += productPrice;
+  totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+
+  totalQuantity++;
+  itemsNo.innerText = totalQuantity;
+}
+
+function updateTotalPrice() {
+  let items = document.querySelectorAll('.items');
+  totalPrice = 0;
+  items.forEach(item => {
+    let price = parseFloat(item.querySelector('.p-q span:first-child').innerText.split('$')[1]);
+    let quantity = parseInt(item.querySelector('.p-q span:nth-child(2)').innerText.split(': ')[1]);
+    totalPrice += price * quantity;
+  });
+  totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
+}
+
+function handleFormSubmit(event) {
   event.preventDefault();
-  // Process form data here (e.g., send it to server, add content-box, etc.)
-  // After processing, you can close the popup
+
+  const productName = document.getElementById('productName').value;
+  const productPrice = document.getElementById('productPrice').value;
+  const productImage = document.querySelector('.popup-content img').src;
+
+  const contentBox = document.querySelector('.content-box');
+  const newProduct = `
+    <div class="content">
+      <img src="${productImage}" alt="img">
+      <div class="details">
+        <span>${productName}</span>
+        <span>Price: $${productPrice}</span>
+        <button class="add-to-cart-btn">Add to cart</button>
+      </div>
+    </div>
+  `;
+
+  contentBox.insertAdjacentHTML('beforeend', newProduct);
   closePopup();
-});
+
+  // Add event listener to the new "Add to cart" button
+  const newAddToCartButton = contentBox.querySelector('.add-to-cart-btn');
+  newAddToCartButton.addEventListener('click', function() {
+    addToCart(productName, parseFloat(productPrice.replace('$', '')));
+  });
+}
+
+document.getElementById('uploadForm').addEventListener('submit', handleFormSubmit);
 
 
 // For Printing
