@@ -75,7 +75,7 @@ body {
 
 /* Splash Screen */
 .splash-screen {
-  display: none;
+  display: flex;
   gap: 10px;
   position: fixed;
   top: 0;
