@@ -161,7 +161,7 @@ body {
 }
 .login-content form input{
   font-size: 18px;
-  padding: 5px;
+  padding: 5px 10px;
   border: 1px solid goldenrod;
   border-radius: 5px;
   outline-color: gold;
