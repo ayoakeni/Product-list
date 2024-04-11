@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   if (!splashShown) {
     // Show the splash screen
-    document.getElementById("splash-screen").style.display = "block";
+    document.getElementById("splash-screen").style.display = "flex";
     setTimeout(function() {
       document.getElementById("splash-screen").style.display = "none";
       sessionStorage.setItem("splashShown", "true");
@@ -171,7 +171,7 @@ function checkCartEmpty() {
 
 // Upload
 function openPopup() {
-  document.getElementById("upload-popup").style.display = "block";
+  document.getElementById("upload-popup").style.display = "flex";
 }
 
 function closePopup() {

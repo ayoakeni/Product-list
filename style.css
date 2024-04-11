@@ -25,57 +25,6 @@ body {
   background: var(--background-color);
   transition: background-color 0.3s, color 0.3s;
 }
-.login-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: goldenrod;
-  z-index: 9888;
-}
-.login-box{
-  width: fit-content;
-  padding: 20px;
-  height: auto;
-  border-radius: 5px;
-  background: #fff;
-  margin: auto;
-}
-.login-title h2{
-  color: goldenrod;
-  margin-bottom: 10px;
-}
-.login-content form{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-.pass-enter{
-  color: goldenrod;
-}
-.login-content form button{
-  color: goldenrod;
-  width: fit-content;
-  padding: 5px 10px;
-  border: 1px solid goldenrod;
-  border-radius: 5px;
-  background: transparent;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-.login-content form button:hover{
-  color: #fff;
-  background: goldenrod; 
-}
-.login-content form button:active {
-  background: rgb(216, 193, 134);
-}
-
 /* Common Styles */
 :root {
   --background-color: #fff;
@@ -126,22 +75,20 @@ body {
 
 /* Splash Screen */
 .splash-screen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: none;
   gap: 10px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(goldenrod, #202020);
   z-index: 9999;
 }
 .splash-screen img {
   width: 350px;
   height: 350px;
+  margin: auto;
 }
 /* Onboarding */
 .onboarding {
@@ -184,6 +131,67 @@ body {
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+}
+.login-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: none;
+  background-color: goldenrod;
+  z-index: 9888;
+}
+.login-box{
+  padding: 150px;
+  height: auto;
+  border-radius: 5px;
+  background: #fff;
+  margin: auto;
+}
+.login-title h2{
+  color: goldenrod;
+  margin-bottom: 10px;
+}
+.login-content form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.login-content form input{
+  font-size: 18px;
+  padding: 5px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  outline-color: gold;
+}
+.login-content form button{
+  color: goldenrod;
+  width: fit-content;
+  padding: 5px 10px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  background: transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.login-content form button:hover{
+  color: #fff;
+  background: goldenrod; 
+}
+.login-content form button:active {
+  background: rgb(216, 193, 134);
+}
+.forgot-password{
+  margin-top: 10px;
+  text-align: center;
+}
+.forgot-password a{
+  color: goldenrod;
+}
+.forgot-password a:hover{
+  color: gold;
 }
 .content-body {
   display: none;
@@ -357,10 +365,9 @@ main{
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 98;
 }
-
 .popup-content {
   background-color: var(--background-color);
-  margin: 15% auto;
+  margin: auto;
   border: 1px solid goldenrod;
   width: 80%;
   max-width: 600px;
@@ -378,7 +385,7 @@ main{
 }
 .close-btn i{
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
   transition: all 0.3s;
   cursor: pointer;
 }
@@ -398,24 +405,43 @@ main{
 }
 #productName{
   font-size: 18px;
-  color: goldenrod;
+  color: var(--accent-color);
   border: 1px solid goldenrod;
   border-radius: 5px;
   padding: 5px;
   outline-color: gold;
+  background: var(--background-color);
 }
-#productImage{
+.file-input-container {
+  display: inline-block;
+}
+.custom-file-input {
   font-size: 18px;
-  color: goldenrod;
-  outline-color: gold;
+  display: inline-block;
+  padding: 5px;
+  background: goldenrod;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* Hide the default file input */
+input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
 }
 #productPrice{
   font-size: 18px;
+  color: var(--accent-color);
   border: 1px solid goldenrod;
   border-radius: 5px;
   width: 150px;
   padding: 5px;
   outline-color: gold;
+  background: var(--background-color);
 }
 .up-ld{
   display: flex;
