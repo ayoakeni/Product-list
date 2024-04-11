@@ -239,14 +239,6 @@ function addToCart(productName, productPrice) {
 
   totalQuantity++;
   itemsNo.innerText = totalQuantity;
-
-  // Store the new product
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  let product = { name: productName, price: productPrice };
-  cart.push(product);
-  localStorage.setItem('cart', JSON.stringify(cart));
-  updateCartDisplay();
-  console.log(`Adding ${productName} to cart for $${productPrice}`);
 }
 
 function updateTotalPrice() {
