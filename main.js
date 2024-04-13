@@ -1,3 +1,5 @@
+// import { addProductToFirestore } from './firebase.js';
+
 // Splash Screen & Onboarding
 let currentScreen = 0;
 
@@ -170,13 +172,17 @@ function checkCartEmpty() {
 }
 
 // Upload
-function openPopup() {
+// Open upload popup
+const uploadItems = document.getElementById('upload-items');
+  uploadItems.addEventListener('click', () =>{
   document.getElementById("upload-popup").style.display = "flex";
-}
+})
 
-function closePopup() {
+// Close upload popup
+const closeBtn = document.querySelector('.close-btn');
+  closeBtn.addEventListener('click', () =>{
   document.getElementById("upload-popup").style.display = "none";
-}
+})
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
@@ -241,17 +247,6 @@ function addToCart(productName, productPrice) {
   itemsNo.innerText = totalQuantity;
 }
 
-function updateTotalPrice() {
-  let items = document.querySelectorAll('.items');
-  totalPrice = 0;
-  items.forEach(item => {
-    let price = parseFloat(item.querySelector('.p-q span:first-child').innerText.split('$')[1]);
-    let quantity = parseInt(item.querySelector('.p-q span:nth-child(2)').innerText.split(': ')[1]);
-    totalPrice += price * quantity;
-  });
-  totalPriceElement.innerText = `Total: $${totalPrice.toFixed(2)}`;
-}
-
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -279,6 +274,9 @@ function handleFormSubmit(event) {
   newAddToCartButton.addEventListener('click', function() {
     addToCart(productName, parseFloat(productPrice.replace('$', '')));
   });
+
+    // Add the new product to Firestore
+    addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
 }
 
 document.getElementById('uploadForm').addEventListener('submit', handleFormSubmit);

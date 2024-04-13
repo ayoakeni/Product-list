@@ -39,8 +39,12 @@
         </div>
         <div class="login-content">
           <form id="loginForm">
+            <div class="user-enter" style="display: none;">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" aria-hidden="true" tabindex="-1" autocomplete="username">
+            </div>
             <div class="pass-enter">
-              <input type="password" id="password" name="password" required>
+              <input type="password" id="password" name="password" required autocomplete="new-password">
             </div>
             <button type="submit">Login</button>
           </form>
@@ -61,7 +65,7 @@
         <div class="frame">
           <div class="side-bar">
             <a href="account.html" title="Account"><i class="fa-regular fa-user"></i></a>
-            <div title="Upload items" onclick="openPopup()"><i class="fa-solid fa-circle-plus"></i></div>
+            <div id="upload-items" title="Upload items"><i class="fa-solid fa-circle-plus"></i></div>
             <a href="settings.html" title="Settings"><i class="fa-solid fa-gear"></i></a>
           </div>
           <div class="container">
@@ -194,7 +198,7 @@
           <div class="popup-content">
             <div class="upload-title">
               <h2>Upload Product Information</h2>
-              <span class="close-btn" onclick="closePopup()"><i class="fa-solid fa-square-xmark"></i></span>
+              <span class="close-btn"><i class="fa-solid fa-square-xmark"></i></span>
             </div>
             <form id="uploadForm">
               <div class="upl-txt">
@@ -225,8 +229,9 @@
     <!-- Pdf generator -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <!-- Js -->
+    <script type="module" src="firebase.js"></script>
     <script src="dark-mode.js" defer></script>   
     <script src="main.js" defer></script>
-    <script src="login.js"></script>
+    <script src="login.js" defer></script>
   </body> 
 </html>
