@@ -439,30 +439,3 @@ downloadButton.addEventListener('click', () => {
     }
   });
 });
-
-
-
-// const download = document.getElementById('download');
-
-// download.addEventListener('click', ()=> {
-//   let printContents = document.querySelector('.item-box').innerHTML;
-//   let blob = new Blob([printContents], { type: 'text/html' });
-//   let url = URL.createObjectURL(blob);
-//   let a = document.createElement('a');
-//   a.href = url;
-//   a.download = 'receipt.html';
-//   document.body.appendChild(a);
-//   a.click();
-//   document.body.removeChild(a);
-//   URL.revokeObjectURL(url);
-// });
-
-// // PDF donload
-// download.addEventListener('click', ()=> {
-//   let pdf = new jsPDF();
-//   pdf.text("Receipt", 10, 10); // Title for the PDF
-//   pdf.fromHTML(document.querySelector('.item-box'), 15, 15); // Convert HTML to PDF
-
-//   // Download the PDF file
-//   pdf.save('receipt.pdf');
-// });
