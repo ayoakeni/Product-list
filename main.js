@@ -227,47 +227,51 @@ closeUploadMessage.addEventListener("click", () => {
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
-  let reader = new FileReader();
+  
+  // Check if a file was actually selected
+  if (file) {
+    let reader = new FileReader();
 
-  reader.onload = function(e) {
-    const imagePreview = document.createElement('img');
-    imagePreview.classList.add('image-preview');
-    imagePreview.src = e.target.result;
-    imagePreview.alt = 'img';
-    imagePreview.width = 180;
-    imagePreview.height = 130;
+    reader.onload = function(e) {
+      const imagePreview = document.createElement('img');
+      imagePreview.classList.add('image-preview');
+      imagePreview.src = e.target.result;
+      imagePreview.alt = 'img';
+      imagePreview.width = 180;
+      imagePreview.height = 130;
 
-    const removeButton = document.createElement('span');
-    removeButton.classList.add('remove-image-button');
-    removeButton.innerHTML = '<i class="fa-solid fa-square-xmark"></i>';
-    removeButton.addEventListener('click', function() {
-      imagePreview.remove();
-      removeButton.remove();
-      // Clear the file input
-      document.getElementById('imageInput').value = '';
-      updateLabelText(); // Update the label text after removing image
-    });
+      const removeButton = document.createElement('span');
+      removeButton.classList.add('remove-image-button');
+      removeButton.innerHTML = '<i class="fa-solid fa-square-xmark"></i>';
+      removeButton.addEventListener('click', function() {
+        imagePreview.remove();
+        removeButton.remove();
+        // Clear the file input
+        document.getElementById('imageInput').value = '';
+        updateLabelText(); // Update the label text after removing image
+      });
 
-    let previewContainer = document.querySelector('.image-preview-container');
-    if (previewContainer) {
-      // Clear existing preview container
-      previewContainer.innerHTML = '';
-    } else {
-      // Create a new preview container if none exists
-      const uploadPopup = document.querySelector('.upload-popup');
-      const uploadContent = uploadPopup.querySelector('.popup-content');
-      const uploadTitle = uploadPopup.querySelector('.upload-title');
-      previewContainer = document.createElement('div');
-      previewContainer.classList.add('image-preview-container');
-      uploadContent.insertBefore(previewContainer, uploadTitle.nextSibling);
-    }
+      let previewContainer = document.querySelector('.image-preview-container');
+      if (previewContainer) {
+        // Clear existing preview container
+        previewContainer.innerHTML = '';
+      } else {
+        // Create a new preview container if none exists
+        const uploadPopup = document.querySelector('.upload-popup');
+        const uploadContent = uploadPopup.querySelector('.popup-content');
+        const uploadTitle = uploadPopup.querySelector('.upload-title');
+        previewContainer = document.createElement('div');
+        previewContainer.classList.add('image-preview-container');
+        uploadContent.insertBefore(previewContainer, uploadTitle.nextSibling);
+      }
 
-    // Add image and remove button to the preview container
-    previewContainer.appendChild(imagePreview);
-    previewContainer.appendChild(removeButton);
-  };
+      // Add image and remove button to the preview container
+      previewContainer.appendChild(imagePreview);
+      previewContainer.appendChild(removeButton);
+    };
 
-  reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
+  }
 }
 
 // Get the file input element
@@ -350,23 +354,26 @@ function handleFormSubmit(event) {
 
   contentBox.insertAdjacentHTML('beforeend', newProduct);
 
-  // Add event listener to the new "Add to cart" button
-  const newAddToCartButton = contentBox.querySelector('.add-to-cart-btn');
-  newAddToCartButton.addEventListener('click', function() {
-    addToCart(productName, parseFloat(productPrice.replace('$', '')));
-  });
+  // Reset upload popup content
+  resetUploadPopup();
 
-    // Add the new product to Firestore
-    // addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
+  // Add the new product to Firestore
+  // addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
 
-    resetUploadPopup(); // Reset the upload popup content
-
-    // Alert the user for sucessful upload
-    uploadMessage();
+  // Alert the user for successful upload
+  uploadMessage();
 }
 
 document.getElementById('uploadForm').addEventListener('submit', handleFormSubmit);
 
+// Add event listener to the content box for handling "Add to cart" button clicks
+document.querySelector('.content-box').addEventListener('click', function(event) {
+  if (event.target.classList.contains('add-to-cart-btn')) {
+    const productName = event.target.parentNode.querySelector('span').innerText;
+    const productPrice = parseFloat(event.target.parentNode.querySelector('span:nth-child(2)').innerText.replace('Price: $', ''));
+    addToCart(productName, productPrice);
+  }
+});
 
 // For Printing
 const printButton = document.getElementById('print');
