@@ -181,12 +181,10 @@ const uploadItems = document.getElementById('upload-items');
 
 // Close upload popup
 function closeupload(){
-  const closeBtn = document.querySelector('.close-btn');
-  closeBtn.addEventListener('click', () =>{
   document.getElementById("upload-popup").style.display = "none";
   resetUploadPopup(); // Reset the upload popup content when closing
-})
 }
+document.querySelector('.close-btn').addEventListener('click', closeupload);
 
 // Reset upload popup content
 function resetUploadPopup() {
@@ -219,8 +217,6 @@ closeUploadMessage.addEventListener("click", () => {
   pop.classList.remove("openPopup");
 });
 
-
-
 function handleImageUpload(event) {
   const file = event.target.files[0];
   let reader = new FileReader();
@@ -243,16 +239,23 @@ function handleImageUpload(event) {
       document.getElementById('imageInput').value = '';
     });
 
-    const previewContainer = document.createElement('div');
-    previewContainer.classList.add('image-preview-container');
+    let previewContainer = document.querySelector('.image-preview-container');
+    if (previewContainer) {
+      // Clear existing preview container
+      previewContainer.innerHTML = '';
+    } else {
+      // Create a new preview container if none exists
+      const uploadPopup = document.querySelector('.upload-popup');
+      const uploadContent = uploadPopup.querySelector('.popup-content');
+      const uploadTitle = uploadPopup.querySelector('.upload-title');
+      previewContainer = document.createElement('div');
+      previewContainer.classList.add('image-preview-container');
+      uploadContent.insertBefore(previewContainer, uploadTitle.nextSibling);
+    }
+
+    // Add image and remove button to the preview container
     previewContainer.appendChild(imagePreview);
     previewContainer.appendChild(removeButton);
-
-    const uploadPopup = document.querySelector('.upload-popup');
-    const uploadContent = uploadPopup.querySelector('.popup-content');
-    const uploadTitle = uploadPopup.querySelector('.upload-title');
-
-    uploadContent.insertBefore(previewContainer, uploadTitle.nextSibling);
   };
 
   reader.readAsDataURL(file);
