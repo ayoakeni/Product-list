@@ -23,9 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Retrieve the profile name from local storage
   const storedProfileName = localStorage.getItem('profileName');
   if (storedProfileName) {
-    // Update the navbar with the profile name
-    // document.getElementById('store-name').textContent = storedProfileName;
-
+    
     // Update the default profile with the stored name
     profileName.innerHTML = `<label for="profileName">Name : </label>${storedProfileName}`;
     editProfileName.value = storedProfileName;

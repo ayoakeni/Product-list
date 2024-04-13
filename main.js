@@ -66,6 +66,13 @@ function goBack() {
   history.back();
 }
 
+// Upadating the Navbar store name from Account profile
+document.addEventListener('DOMContentLoaded', () => {
+  const storedProfileName = localStorage.getItem('profileName');
+  if (storedProfileName) {
+    document.getElementById('store-name').textContent = storedProfileName;
+  }
+});
 
 // Search input
 const searchInput = document.querySelector('input[type="search"]');
