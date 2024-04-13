@@ -23,22 +23,50 @@
         <div class="account-content">
           <div class="profile">
             <div class="profile-img">
-              <img src="image/iphone.jp">
+              <img id="profileImage" src="image/blank-profile-picture.png">
             </div>
+            <div class="info">
+              <div id="profileName">
+                <label for="profileName">Name :</label>Camili Ventures and Limited
+              </div>
+              <div id="profileAddress">
+                <label for="profileAddress">Address :</label>10 Allen junction, opposite Uba ikeja lagos.
+              </div>
+            </div>
+            <button id="editProfileBtn">Edit Profile</button>
           </div>
-          <div class="info">
-            <div class="name">
-              <label>Name :</label><span>Camili Ventures and Limited</span>
+          <div class="edit-profile" style="display: none;">
+            <div class="profile">
+              <div class="profile-img">
+                <!-- Add an id to the image for easy targeting -->
+                <label for="imageInput">
+                  <img id="editProfileImage" src="image/blank-profile-picture.png">
+                </label>
+                <input type="file" id="imageInput" style="display: none;">
+              </div>
             </div>
-            <div class="address">
-              <label>Addresss :</label><span>10 Allen junction, opposite Uba ikeja lagos.</span>
+            <div class="info">
+              <div class="name">
+                <label for="editProfileName">Name :</label>
+                <!-- Add an id to the input for easy targeting -->
+                <input type="text" id="editProfileName" value="Camili Ventures and Limited">
+              </div>
+              <div class="address">
+                <label for="editProfileAddress">Address :</label>
+                <!-- Add an id to the input for easy targeting -->
+                <input type="text" id="editProfileAddress" value="10 Allen junction, opposite Uba ikeja lagos.">
+              </div>
+            </div>
+            <div class="save-btn">
+              <input type="button" id="saveProfileBtn" value="Save">
             </div>
           </div>
           <div class="password">
             <Span>Change password</Span>
             <form action="">
-              <input type="password" placeholder="New password">
-              <input type="password" placeholder="Confirm password">
+              <input type="text" style="display: none;" name="username" aria-hidden="true" tabindex="-1" autocomplete="username">
+              <input type="password" placeholder="New password" autocomplete="new-password">
+              <input type="password" placeholder="Confirm password" autocomplete="current-password">
               <div class="btn">
                 <input type="submit" value="Save">
               </div>
@@ -48,7 +76,7 @@
       </div>
     </div>
   </body>
+  <script src="account.js" defer></script>
   <script src="dark-mode.js" defer></script>
-  <script src="toggle.js" defer></script>
-  <script src="password.js"></script>
+  <script src="password.js" defer></script>
 </html>

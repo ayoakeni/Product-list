@@ -719,6 +719,7 @@ input[type="file"] {
   color:  #fff;
   background: goldenrod;
   padding: 15px;
+  z-index: 100;
 }
 .setting-content,
 .account-content{
@@ -742,50 +743,62 @@ input[type="file"] {
   margin-right: 5px;
 }
 /* Profile */
-.profile{
-  margin: auto;
-}
-.profile-img{
-  width: 150px;
-  height: 150px;
-  border-radius: 100%;
-  background-image: url(image/flash-drive.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 2px solid goldenrod;
-  overflow: hidden;
-}
-.profile-img img{
-  width: 100%;
-}
-.account-content .info{
+.edit-profile{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   border: 1px solid goldenrod;
   border-radius: 5px;
   padding: 10px;
 }
+.profile{}
+.profile-img{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  border: 2px solid goldenrod;
+  overflow: hidden;
+  margin: auto;
+}
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+#imageInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.account-content .info{
+  padding: 10px;
+}
 .account-content .info .name{
   margin-bottom: 10px;
+  padding-bottom: 20px;
 }
 .account-content .info .name label{
   font-size: 25px;
   color: var(--accent-color);
   margin-right: 7px;
 }
-.account-content .info .name span{
-  color: var(--text-color);
-}
 .account-content .info .address{
   border-top: 1px solid goldenrod;
-  padding-top: 10px;
+  padding-top: 20px;
 }
-.account-content .info .address label{
-  font-size: 25px;
+.account-content .info .name #editProfileName,
+.account-content .info .address #editProfileAddress{
   color: var(--accent-color);
-  margin-right: 7px;
-}
-.account-content .info .address span{
-  color: var(--text-color);
+  width: 100%;
+  outline-color: gold;
+  border: 1px solid goldenrod;
+  padding: 5px 8px;
+  background: transparent;
 }
 .account-content .password{
   border: 1px solid goldenrod;
@@ -809,10 +822,13 @@ input[type="file"] {
   padding: 5px 8px;
   background: transparent;
 }
-.account-content .password form .btn{
+.account-content .password form .btn,
+.edit-profile-btn, .save-btn input[type="button"]{
   display: flex;
+  justify-content: end;
 }
-.account-content .password form input[type="submit"]{
+.account-content .password form input[type="submit"],
+.edit-profile-btn button, .save-btn input[type="button"]{
   color: goldenrod;
   width: fit-content;
   border: 1px solid goldenrod;
@@ -820,13 +836,19 @@ input[type="file"] {
   padding: 5px 8px;
   background: transparent;
   margin: auto;
+  transition: all 0.3s;
   cursor: pointer;
 }
-.account-content .password form input[type="submit"]:hover{
+.edit-profile-btn button{
+  margin: 0;
+}
+.account-content .password form input[type="submit"]:hover,
+.edit-profile-btn button:hover, .save-btn input[type="button"]:hover{
   color: #fff;
   background: goldenrod; 
 }
-.account-content .password form input[type="submit"]:active {
+.account-content .password form input[type="submit"]:active,
+.edit-profile-btn button:active {
   background: rgb(216, 193, 134);
 }
 /* Settings */
