@@ -194,6 +194,11 @@ function resetUploadPopup() {
     imagePreview.remove(); // Remove the image preview if it exists
   }
 
+  const removeButton = uploadContent.querySelector('.remove-image-button');
+  if (removeButton) {
+    removeButton.remove(); // Remove the remove image button if it exists
+  }
+
   const imageInput = document.getElementById('imageInput');
   const productNameInput = document.getElementById('productName');
   const productPriceInput = document.getElementById('productPrice');
@@ -204,6 +209,9 @@ function resetUploadPopup() {
 
   // Reset the file input
   imageInput.value = '';
+
+  // Reset the label text
+  fileInputLabel.innerText = 'Choose Image';
 }
 
 // Popup message for sucessfull upload
@@ -216,6 +224,23 @@ function uploadMessage(){
 closeUploadMessage.addEventListener("click", () => {
   pop.classList.remove("openPopup");
 });
+
+// Get the file input element
+const imageInput = document.getElementById('imageInput');
+// Get the label for the file input
+const fileInputLabel = document.querySelector('.custom-file-input');
+
+// Function to update the label text
+function updateLabelText() {
+  if (imageInput.files.length > 0) {
+    fileInputLabel.innerText = `${imageInput.files[0].name}`;
+  } else {
+    fileInputLabel.innerText = 'Choose Image';
+  }
+}
+
+// Event listener for file input change
+imageInput.addEventListener('change', updateLabelText);
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
@@ -237,6 +262,7 @@ function handleImageUpload(event) {
       removeButton.remove();
       // Clear the file input
       document.getElementById('imageInput').value = '';
+      updateLabelText(); // Update the label text after removing image
     });
 
     let previewContainer = document.querySelector('.image-preview-container');
@@ -325,7 +351,7 @@ function handleFormSubmit(event) {
   contentBox.insertAdjacentHTML('beforeend', newProduct);
   
   // Close upload
-  closeupload();
+  // closeupload();
 
   // Add event listener to the new "Add to cart" button
   const newAddToCartButton = contentBox.querySelector('.add-to-cart-btn');
