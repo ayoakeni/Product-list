@@ -7,25 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const editProfileImage = document.getElementById('editProfileImage');
   const editProfileName = document.getElementById('editProfileName');
   const editProfileAddress = document.getElementById('editProfileAddress');
+  const defaultProfile = document.getElementById('defaultProfile');
+  const profileName = document.getElementById('profileName');
+  const profileAddress = document.getElementById('profileAddress');
 
   // Add event listener to the edit profile button
   editProfileBtn.addEventListener('click', () => {
     // Update the image in the edit profile section
     editProfileImage.src = profileImage.src;
     editProfileForm.style.display = 'block';
-    editProfileBtn.parentNode.style.display = 'none'; // Hide the editProfileBtn container
+    defaultProfile.style.display = 'none'; // Hide the defaultProfile container
   });
 
   // Add event listener to the save button
   saveProfileBtn.addEventListener('click', () => {
     // Update the profile information
     profileImage.src = editProfileImage.src;
-    profileName.innerHTML = `<label for="profileName">Name :</label>${editProfileName.value}`;
-    profileAddress.innerHTML = `<label for="profileAddress">Address :</label>${editProfileAddress.value}`;
+    profileName.innerHTML = `<label for="profileName">Name : </label>${editProfileName.value}`;
+    profileAddress.innerHTML = `<label for="profileAddress">Address : </label>${editProfileAddress.value}`;
 
     // Hide the edit profile form
     editProfileForm.style.display = 'none';
-    editProfileBtn.parentNode.style.display = 'block'; // Show the editProfileBtn container
+    defaultProfile.style.display = 'block'; // Show the editProfileBtn container
   });
 
   // Add event listener to the file input for change event
