@@ -225,23 +225,6 @@ closeUploadMessage.addEventListener("click", () => {
   pop.classList.remove("openPopup");
 });
 
-// Get the file input element
-const imageInput = document.getElementById('imageInput');
-// Get the label for the file input
-const fileInputLabel = document.querySelector('.custom-file-input');
-
-// Function to update the label text
-function updateLabelText() {
-  if (imageInput.files.length > 0) {
-    fileInputLabel.innerText = `${imageInput.files[0].name}`;
-  } else {
-    fileInputLabel.innerText = 'Choose Image';
-  }
-}
-
-// Event listener for file input change
-imageInput.addEventListener('change', updateLabelText);
-
 function handleImageUpload(event) {
   const file = event.target.files[0];
   let reader = new FileReader();
@@ -286,6 +269,23 @@ function handleImageUpload(event) {
 
   reader.readAsDataURL(file);
 }
+
+// Get the file input element
+const imageInput = document.getElementById('imageInput');
+// Get the label for the file input
+const fileInputLabel = document.querySelector('.custom-file-input');
+
+// Function to update the label text
+function updateLabelText() {
+  if (imageInput.files.length > 0) {
+    fileInputLabel.innerText = `${imageInput.files[0].name}`;
+  } else {
+    fileInputLabel.innerText = 'Choose Image';
+  }
+}
+
+// Event listener for file input change
+imageInput.addEventListener('change', updateLabelText);
 
 function addToCart(productName, productPrice) {
   let item = document.querySelector(`.item-lists .items[data-name="${productName}"]`);
