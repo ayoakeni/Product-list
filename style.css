@@ -519,7 +519,6 @@ input[type="file"] {
   text-align: center;
   padding: 30px;
   border: 1px solid goldenrod;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 .popup-message .fa-circle-check{
   font-size: 80px;
