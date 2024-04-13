@@ -464,6 +464,66 @@ input[type="file"] {
 .popup-content form button:active {
   background: rgb(216, 193, 134);
 }
+.pop-message{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  transform: translate(0%) scale();
+  transition: transform 0.4s, top 0.4s;
+  background-color: transparent;
+  z-index: 100;
+}
+.popup-message{
+  width: 300px;
+  background: var(--background-color);
+  border-radius: 6px;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid goldenrod;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.popup-message .fa-circle-check{
+  font-size: 80px;
+  font-weight: 500;
+  font-style: normal;
+  color: goldenrod;
+  margin-top: 0px;
+  border-radius: 50%;
+}
+.openPopup{
+  transform: translate(0%) scale(1);
+  display: flex;
+}
+.popup-message h2{
+  font-size: 24px;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin: 10px 0 10px;
+  color: var(--accent-color);
+}
+.popup-message button{
+  color: goldenrod;
+  width: 100%;
+  padding: 5px 10px;
+  border: 1px solid goldenrod;
+  border-radius: 5px;
+  background: transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.popup-message button:hover{
+  color: #fff;
+  background: goldenrod; 
+}
+.popup-message button:active {
+  background: rgb(216, 193, 134);
+}
 .preview-board{
   width: 500px;
   border-left: 1px solid goldenrod;

@@ -176,13 +176,48 @@ function checkCartEmpty() {
 const uploadItems = document.getElementById('upload-items');
   uploadItems.addEventListener('click', () =>{
   document.getElementById("upload-popup").style.display = "flex";
+  resetUploadPopup(); // Reset the upload popup content when opening
 })
 
 // Close upload popup
-const closeBtn = document.querySelector('.close-btn');
+function closeupload(){
+  const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () =>{
   document.getElementById("upload-popup").style.display = "none";
+  resetUploadPopup(); // Reset the upload popup content when closing
 })
+}
+
+// Reset upload popup content
+function resetUploadPopup() {
+  const uploadContent = document.querySelector('.popup-content');
+  const imagePreview = uploadContent.querySelector('img');
+  if (imagePreview) {
+    imagePreview.remove(); // Remove the image preview if it exists
+  }
+
+  const imageInput = document.getElementById('imageInput');
+  const productNameInput = document.getElementById('productName');
+  const productPriceInput = document.getElementById('productPrice');
+
+  // Clear the product name and price inputs
+  productNameInput.value = '';
+  productPriceInput.value = '';
+
+  // Reset the file input
+  imageInput.value = '';
+}
+
+// Popup message for sucessfull upload
+const pop = document.querySelector('.pop-message');
+const closeUploadMessage = document.getElementById("close-message");
+
+function uploadMessage(){
+  pop.classList.add("openPopup");
+}
+closeUploadMessage.addEventListener("click", () => {
+  pop.classList.remove("openPopup");
+});
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
@@ -267,7 +302,9 @@ function handleFormSubmit(event) {
   `;
 
   contentBox.insertAdjacentHTML('beforeend', newProduct);
-  closePopup();
+  
+  // Close upload
+  closeupload();
 
   // Add event listener to the new "Add to cart" button
   const newAddToCartButton = contentBox.querySelector('.add-to-cart-btn');
@@ -276,7 +313,12 @@ function handleFormSubmit(event) {
   });
 
     // Add the new product to Firestore
-    addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
+    // addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
+
+    resetUploadPopup(); // Reset the upload popup content
+
+    // Alert the user for sucessful upload
+    uploadMessage();
 }
 
 document.getElementById('uploadForm').addEventListener('submit', handleFormSubmit);
