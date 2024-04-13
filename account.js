@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Retrieve the profile name from local storage
   const storedProfileName = localStorage.getItem('profileName');
   if (storedProfileName) {
-    
+
     // Update the default profile with the stored name
     profileName.innerHTML = `<label for="profileName">Name : </label>${storedProfileName}`;
     editProfileName.value = storedProfileName;
@@ -68,3 +68,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// Function to upload the image to Firestore
+// function uploadImageToFirestore(file) {
+//   const storageRef = firebase.storage().ref();
+//   const imageRef = storageRef.child('profile_images/' + file.name);
+//   return imageRef.put(file);
+// }
+
+// // Example usage when the user selects a new image file
+// const fileInput = document.getElementById('imageInput');
+// fileInput.addEventListener('change', async (event) => {
+//   const file = event.target.files[0];
+//   if (file) {
+//     try {
+//       await uploadImageToFirestore(file);
+//       // Assuming upload is successful, save the image URL to localStorage
+//       const imageUrl = await storageRef.child('profile_images/' + file.name).getDownloadURL();
+//       localStorage.setItem('profileImageUrl', imageUrl);
+//       // Update the profile image in the UI
+//       profileImage.src = imageUrl;
+//     } catch (error) {
+//       console.error('Error uploading image:', error);
+//     }
+//   }
+// });

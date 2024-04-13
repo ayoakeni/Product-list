@@ -1,14 +1,7 @@
-// import { addProductToFirestore } from './firebase.js';
+import { addProductToFirestore } from './firebase.js';
 
 // Splash Screen & Onboarding
 let currentScreen = 0;
-
-function startApp() {
-  // Set the flag indicating that onboarding is completed
-  localStorage.setItem("onboardingCompleted", "true");
-  document.getElementById("onboarding").style.display = "none";
-  document.getElementById("content-body").style.display = "block";
-}
 
 document.addEventListener("DOMContentLoaded", function() {
   const splashShown = sessionStorage.getItem("splashShown");
@@ -39,16 +32,31 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-function nextScreen() {
-  const screens = document.querySelectorAll(".onboarding-screen");
+const nextScreen = document.querySelectorAll('.nextScreen');
+nextScreen.forEach( nextScreen =>{
+  nextScreen.addEventListener('click', () => {
+    const screens = document.querySelectorAll(".onboarding-screen");
   if (currentScreen < screens.length - 1) {
     screens[currentScreen].style.display = "none";
     currentScreen++;
     screens[currentScreen].style.display = "block";
   } else {
     localStorage.setItem("onboardingCompleted", "true");
-    startApp();
+    startAp();
   }
+  });
+});
+
+const startApp = document.getElementById('startApp');
+startApp.addEventListener('click', () => {
+  startAp()
+});
+
+function startAp() {
+  // Set the flag indicating that onboarding is completed
+  localStorage.setItem("onboardingCompleted", "true");
+  document.getElementById("onboarding").style.display = "none";
+  document.getElementById("content-body").style.display = "block";
 }
 
 function goBack() {
@@ -365,7 +373,7 @@ function handleFormSubmit(event) {
   resetUploadPopup();
 
   // Add the new product to Firestore
-  // addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
+  addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: productImage });
 
   // Alert the user for successful upload
   uploadMessage();

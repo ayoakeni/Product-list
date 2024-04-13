@@ -19,17 +19,17 @@
       <div class="onboarding-screen">
         <h1>Welcome to Teeya App</h1>
         <p>This app helps you manage your shopping list and find the best deals on products.</p>
-        <button onclick="nextScreen()">Next</button>
+        <button class="nextScreen">Next</button>
       </div>
       <div class="onboarding-screen">
         <h1>Track Your Shopping</h1>
         <p>Keep track of the items you need to buy and easily add them to your cart.</p>        
-        <button onclick="nextScreen()">Next</button>
+        <button class="nextScreen">Next</button>
       </div>
       <div class="onboarding-screen">
         <h1>Get Notified</h1>
         <p>Receive notifications about special offers and discounts on your favorite products.</p>        
-        <button onclick="startApp()">Start App</button>
+        <button id="startApp">Start App</button>
       </div>
     </div>
     <div class="login-container">
@@ -238,7 +238,7 @@
     <!-- Js -->
     <script type="module" src="firebase.js"></script>
     <script src="dark-mode.js" defer></script>   
-    <script src="main.js" defer></script>
+    <script type="module" src="main.js" defer></script>
     <script src="login.js" defer></script>
   </body> 
 </html>
