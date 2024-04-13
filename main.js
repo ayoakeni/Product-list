@@ -219,22 +219,40 @@ closeUploadMessage.addEventListener("click", () => {
   pop.classList.remove("openPopup");
 });
 
+
+
 function handleImageUpload(event) {
   const file = event.target.files[0];
-  const reader = new FileReader();
+  let reader = new FileReader();
 
   reader.onload = function(e) {
     const imagePreview = document.createElement('img');
+    imagePreview.classList.add('image-preview');
     imagePreview.src = e.target.result;
     imagePreview.alt = 'img';
     imagePreview.width = 180;
     imagePreview.height = 130;
 
+    const removeButton = document.createElement('span');
+    removeButton.classList.add('remove-image-button');
+    removeButton.innerHTML = '<i class="fa-solid fa-square-xmark"></i>';
+    removeButton.addEventListener('click', function() {
+      imagePreview.remove();
+      removeButton.remove();
+      // Clear the file input
+      document.getElementById('imageInput').value = '';
+    });
+
+    const previewContainer = document.createElement('div');
+    previewContainer.classList.add('image-preview-container');
+    previewContainer.appendChild(imagePreview);
+    previewContainer.appendChild(removeButton);
+
     const uploadPopup = document.querySelector('.upload-popup');
     const uploadContent = uploadPopup.querySelector('.popup-content');
     const uploadTitle = uploadPopup.querySelector('.upload-title');
 
-    uploadContent.insertBefore(imagePreview, uploadTitle.nextSibling);
+    uploadContent.insertBefore(previewContainer, uploadTitle.nextSibling);
   };
 
   reader.readAsDataURL(file);
