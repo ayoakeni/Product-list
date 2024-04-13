@@ -8,14 +8,17 @@
   font-style: normal;
   scroll-behavior: smooth;
 }
-body::-webkit-scrollbar{
+body::-webkit-scrollbar,
+.frame ::-webkit-scrollbar{
   width: 5px;
 }
-body::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb,
+.frame ::-webkit-scrollbar-thumb{
   background: goldenrod;
   border-radius: 10px;
 }
-body::-webkit-scrollbar-button{
+body::-webkit-scrollbar-button,
+.frame ::-webkit-scrollbar-button{
   height: 5px;
   background: goldenrod;
   cursor: pointer;

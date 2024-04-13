@@ -1,3 +1,4 @@
+// Wait for the DOM to fully load before running the script
 document.addEventListener('DOMContentLoaded', () => {
   const editProfileBtn = document.getElementById('editProfileBtn');
   const editProfileForm = document.querySelector('.edit-profile');
@@ -19,12 +20,38 @@ document.addEventListener('DOMContentLoaded', () => {
     defaultProfile.style.display = 'none'; // Hide the defaultProfile container
   });
 
+  // Retrieve the profile name from local storage
+  const storedProfileName = localStorage.getItem('profileName');
+  if (storedProfileName) {
+    // Update the navbar with the profile name
+    // document.getElementById('store-name').textContent = storedProfileName;
+
+    // Update the default profile with the stored name
+    profileName.innerHTML = `<label for="profileName">Name : </label>${storedProfileName}`;
+    editProfileName.value = storedProfileName;
+  }
+  
+  // Retrieve the profile Address from local storage
+  const storedProfileAddress = localStorage.getItem('profileAddress');
+  if (storedProfileAddress) {
+    // Update the address in the profile section
+    profileAddress.innerHTML = `<label for="profileAddress">Address : </label>${storedProfileAddress}`;
+    // Update the edit profile form with the stored address
+    editProfileAddress.value = storedProfileAddress;
+  }
+
   // Add event listener to the save button
   saveProfileBtn.addEventListener('click', () => {
     // Update the profile information
     profileImage.src = editProfileImage.src;
-    profileName.innerHTML = `<label for="profileName">Name : </label>${editProfileName.value}`;
-    profileAddress.innerHTML = `<label for="profileAddress">Address : </label>${editProfileAddress.value}`;
+    const newName = editProfileName.value;
+    const newAddress = editProfileAddress.value;
+    profileName.innerHTML = `<label for="profileName">Name : </label>${newName}`;
+    profileAddress.innerHTML = `<label for="profileAddress">Address : </label>${newAddress}`;
+
+    // Save the new name and address to local storage
+    localStorage.setItem('profileName', newName);
+    localStorage.setItem('profileAddress', newAddress);
 
     // Hide the edit profile form
     editProfileForm.style.display = 'none';
