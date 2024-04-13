@@ -349,9 +349,6 @@ function handleFormSubmit(event) {
   `;
 
   contentBox.insertAdjacentHTML('beforeend', newProduct);
-  
-  // Close upload
-  // closeupload();
 
   // Add event listener to the new "Add to cart" button
   const newAddToCartButton = contentBox.querySelector('.add-to-cart-btn');
