@@ -2,6 +2,17 @@
 function toggleDarkMode() {
   const isDarkMode = document.body.classList.toggle('dark-mode');
   localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+
+  // Toggle the sun and moon icons
+  const moonIcon = document.getElementById('moonIcon');
+  const sunIcon = document.getElementById('sunIcon');
+  if (isDarkMode) {
+    moonIcon.style.display = 'none';
+    sunIcon.style.display = 'inline-block';
+  } else {
+    moonIcon.style.display = 'inline-block';
+    sunIcon.style.display = 'none';
+  }
 }
 
 // Initialize dark mode state and apply styles
@@ -15,6 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set the initial state of the toggle container
   const toggleContainer = document.getElementById('darkMode');
   toggleContainer.classList.toggle('active', isDarkMode);
+
+  // Set initial display of sun and moon icons
+  const moonIcon = document.getElementById('moonIcon');
+  const sunIcon = document.getElementById('sunIcon');
+  if (isDarkMode) {
+    moonIcon.style.display = 'none';
+    sunIcon.style.display = 'inline-block';
+  } else {
+    moonIcon.style.display = 'inline-block';
+    sunIcon.style.display = 'none';
+  }
 
   // Add click event listener to the toggle container
   toggleContainer.addEventListener('click', () => {

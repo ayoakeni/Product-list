@@ -61,6 +61,7 @@ body {
   background: #fff;
   border-radius: 50%;
   transition: transform 0.3s;
+  z-index: 1;
 }
 #printCheckbox.active,
 #cloudStorageCheckbox.active,
@@ -74,6 +75,20 @@ body {
 #updateCheckbox.active .toggle-circle{
   transform: translateY(-50%) translateX(18px);
   background: var(--background-color);
+}
+#moonIcon{
+  position: absolute;
+  top: 2px;
+  right: -1px;
+  font-size: 15px;
+  color: goldenrod;
+}
+#sunIcon{
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  font-size: 15px;
+  color: goldenrod;
 }
 
 /* Splash Screen */
