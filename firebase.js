@@ -1,6 +1,9 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js';
-import { getFirestore, collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js';
+// Import Firebase services
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 
+// Initialize Firebase with your config
 const firebaseConfig = {
   apiKey: "AIzaSyC_uukEnHAAgyaw8Qxhrl1nwcZj_jmsK9c",
   authDomain: "product-list-a6129.firebaseapp.com",
@@ -11,15 +14,29 @@ const firebaseConfig = {
   measurementId: "G-H8G1NQ76FZ"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+
+const db = firebase.firestore();
+const storage = firebase.storage();
 
 async function addProductToFirestore(productData) {
   try {
-    const docRef = await addDoc(collection(db, 'products'), productData);
+    const docRef = await db.collection('products').add(productData);
     console.log('Product added with ID: ', docRef.id);
   } catch (e) {
     console.error('Error adding product: ', e);
+  }
+}
+
+async function uploadImageToStorage(file) {
+  const storageRef = storage.ref('images/' + file.name);
+  try {
+    const snapshot = await storageRef.put(file);
+    const imageUrl = await snapshot.ref.getDownloadURL();
+    return imageUrl;
+  } catch (error) {
+    console.error('Error uploading image:', error);
+    return null;
   }
 }
 

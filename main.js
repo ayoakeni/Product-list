@@ -304,6 +304,7 @@ function updateLabelText() {
 }
 
 // Event listener for file input change
+imageInput.addEventListener('change', handleImageUpload);
 imageInput.addEventListener('change', updateLabelText);
 
 function addToCart(productName, productPrice) {
