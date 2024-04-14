@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "firebase": "^10.11.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "firebase": "npx firebase"
+  }
+}

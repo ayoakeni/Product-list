@@ -5,6 +5,12 @@ function togglePrinting() {
   const isActive = printCheckbox.classList.toggle('active');
   // Save the printing state to localStorage
   localStorage.setItem('printingEnabled', isActive ? 'true' : 'false');
+  if (!isActive){
+    alert('Printing disabled.');
+  }
+  else{
+    alert('Printing enabled.');
+  }
 }
 printCheckbox.addEventListener('click', togglePrinting);
 // Load the printing state from localStorage and update the toggle button

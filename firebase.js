@@ -1,9 +1,10 @@
-// Import Firebase services
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
-import 'firebase/compat/storage';
+// Import the functions you need from the Firebase SDKs
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-analytics.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-storage.js";
 
-// Initialize Firebase with your config
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC_uukEnHAAgyaw8Qxhrl1nwcZj_jmsK9c",
   authDomain: "product-list-a6129.firebaseapp.com",
@@ -14,14 +15,15 @@ const firebaseConfig = {
   measurementId: "G-H8G1NQ76FZ"
 };
 
-firebase.initializeApp(firebaseConfig);
-
-const db = firebase.firestore();
-const storage = firebase.storage();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
 async function addProductToFirestore(productData) {
   try {
-    const docRef = await db.collection('products').add(productData);
+    const docRef = await addDoc(collection(db, 'products'), productData);
     console.log('Product added with ID: ', docRef.id);
   } catch (e) {
     console.error('Error adding product: ', e);
@@ -29,10 +31,10 @@ async function addProductToFirestore(productData) {
 }
 
 async function uploadImageToStorage(file) {
-  const storageRef = storage.ref('images/' + file.name);
+  const storageRef = ref(storage, 'images/' + file.name);
   try {
-    const snapshot = await storageRef.put(file);
-    const imageUrl = await snapshot.ref.getDownloadURL();
+    await uploadBytes(storageRef, file);
+    const imageUrl = await getDownloadURL(storageRef);
     return imageUrl;
   } catch (error) {
     console.error('Error uploading image:', error);
@@ -40,7 +42,7 @@ async function uploadImageToStorage(file) {
   }
 }
 
-export { addProductToFirestore };
+export { addProductToFirestore, uploadImageToStorage };
 
 
 // // Get a list of cities from your database
