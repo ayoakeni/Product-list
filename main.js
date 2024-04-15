@@ -129,14 +129,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Popup message for alerts
-const pop = document.querySelector('.pop-message');
-const closeUploadMessage = document.getElementById("close-message");
+const uploadpop = document.getElementById('uploadPop');
+const printpop = document.getElementById('printPop');
+const closeMessage = document.querySelectorAll(".close-message-up");
 
 function uploadMessage(){
-  pop.classList.add("openPopup");
+  uploadpop.classList.add("openPopup");
+  printpop.classList.add("openPopup");
 }
-closeUploadMessage.addEventListener("click", () => {
-  pop.classList.remove("openPopup");
+closeMessage.forEach(closeMessage =>{
+  closeMessage.addEventListener("click", () => {
+    console.log('closed');
+    uploadpop.classList.remove("openPopup");
+    printpop.classList.remove("openPopup");
+  });
 });
 
 // Search input
@@ -417,22 +423,22 @@ function handleFormSubmit(event) {
 
   contentBox.insertAdjacentHTML('beforeend', newProduct);
 
-  // Upload image to Firebase Storage
-  uploadImageToStorage(productImageFile)
-    .then((imageUrl) => {
-      // Add the new product to Firestore
-      addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: imageUrl });
+  // // Upload image to Firebase Storage
+  // uploadImageToStorage(productImageFile)
+  // .then((imageUrl) => {
+  //   // Add the new product to Firestore
+  //   addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: imageUrl });
+  // })
+  // .catch((error) => {
+  //   console.error('Error uploading image:', error);
+  //   // Handle error (e.g., display an error message to the user)
+  // });
 
-      // Alert the user for successful upload
-      uploadMessage();
+  // Alert the user for successful upload
+  uploadMessage();
 
-      // Reset upload popup content
-      resetUploadPopup();
-    })
-    .catch((error) => {
-      console.error('Error uploading image:', error);
-      // Handle error (e.g., display an error message to the user)
-    });
+  // Reset upload popup content
+  resetUploadPopup();
 }
 
 document.getElementById('uploadForm').addEventListener('submit', handleFormSubmit);
