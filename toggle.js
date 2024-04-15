@@ -1,12 +1,14 @@
 // Popup message for alerts
-const pop = document.querySelector('.pop-message');
-const closeUploadMessage = document.getElementById("close-message");
+const printpop = document.getElementById('printPop');
+const closeMessage = document.querySelectorAll(".close-message-up");
 
 function uploadMessage(){
-  pop.classList.add("openPopup");
+  printpop.classList.add("openPopup");
 }
-closeUploadMessage.addEventListener("click", () => {
-  pop.classList.remove("openPopup");
+closeMessage.forEach(closeMessage =>{
+  closeMessage.addEventListener("click", () => {
+    printpop.classList.remove("openPopup");
+  });
 });
 
 // Toggle for printing
@@ -14,21 +16,26 @@ const printCheckbox = document.getElementById('printCheckbox');
 
 function togglePrinting() {
   const isActive = printCheckbox.classList.toggle('active');
+
   // Save the printing state to localStorage
   localStorage.setItem('printingEnabled', isActive ? 'true' : 'false');
+
+  // Display whither printing is enabled or not
+  const printSubject = document.getElementById('print-subject');
+  
   if (!isActive){
-    const printSubject = document.getElementById('print-subject');
     printSubject.textContent = 'Printing disabled.';
     uploadMessage()
   }
   else{
+    printSubject.textContent = 'Printing enabled.';
     uploadMessage()
   }
 }
 printCheckbox.addEventListener('click', togglePrinting);
 // Load the printing state from localStorage and update the toggle button
 const printingEnabled = localStorage.getItem('printingEnabled') === 'true';
-document.getElementById('printCheckbox').classList.toggle('active', printingEnabled);
+printCheckbox.classList.toggle('active', printingEnabled);
 
 
 // Toggle for cloudStorage

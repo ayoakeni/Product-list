@@ -139,7 +139,6 @@ function uploadMessage(){
 }
 closeMessage.forEach(closeMessage =>{
   closeMessage.addEventListener("click", () => {
-    console.log('closed');
     uploadpop.classList.remove("openPopup");
     printpop.classList.remove("openPopup");
   });
