@@ -1,3 +1,14 @@
+// Popup message for alerts
+const pop = document.querySelector('.pop-message');
+const closeUploadMessage = document.getElementById("close-message");
+
+function uploadMessage(){
+  pop.classList.add("openPopup");
+}
+closeUploadMessage.addEventListener("click", () => {
+  pop.classList.remove("openPopup");
+});
+
 // Toggle for printing
 const printCheckbox = document.getElementById('printCheckbox');
 
@@ -6,10 +17,12 @@ function togglePrinting() {
   // Save the printing state to localStorage
   localStorage.setItem('printingEnabled', isActive ? 'true' : 'false');
   if (!isActive){
-    alert('Printing disabled.');
+    const printSubject = document.getElementById('print-subject');
+    printSubject.textContent = 'Printing disabled.';
+    uploadMessage()
   }
   else{
-    alert('Printing enabled.');
+    uploadMessage()
   }
 }
 printCheckbox.addEventListener('click', togglePrinting);

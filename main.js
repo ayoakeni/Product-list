@@ -127,6 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+// Popup message for alerts
+const pop = document.querySelector('.pop-message');
+const closeUploadMessage = document.getElementById("close-message");
+
+function uploadMessage(){
+  pop.classList.add("openPopup");
+}
+closeUploadMessage.addEventListener("click", () => {
+  pop.classList.remove("openPopup");
+});
+
 // Search input
 const searchInput = document.querySelector('input[type="search"]');
 const contentBox = document.querySelector('.content-box');
@@ -273,17 +285,6 @@ function resetUploadPopup() {
   // Reset the label text
   fileInputLabel.innerText = 'Choose Image';
 }
-
-// Popup message for sucessfull upload
-const pop = document.querySelector('.pop-message');
-const closeUploadMessage = document.getElementById("close-message");
-
-function uploadMessage(){
-  pop.classList.add("openPopup");
-}
-closeUploadMessage.addEventListener("click", () => {
-  pop.classList.remove("openPopup");
-});
 
 function handleImageUpload(event) {
   const file = event.target.files[0];
@@ -457,7 +458,7 @@ printButton.addEventListener('click', () => {
     window.print();
     document.body.innerHTML = originalContents;
   } else {
-    alert('Printing is disabled. Enable printing in settings to use this feature.')
+    uploadMessage()
   }
 });
 
