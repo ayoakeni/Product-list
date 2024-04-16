@@ -9,14 +9,31 @@ passwordForm.addEventListener('submit', function(event) {
   const newPassword = document.querySelector('.password input[type="password"]').value;
   const confirmPassword = document.querySelector('.password input[type="password"]:last-of-type').value;
 
+    // Popup message for Sucessfull Change
+    const message = document.getElementById('sucessfull');
+    const passMessage = document.getElementById('pass-message');
+    const closeMessage = document.querySelector(".close-message-up");
+
+    passMessage.textContent = 'Password changed successfully!';
+
+    function uploadMessage(){
+      message.classList.add("openPopup");
+    }
+
+    closeMessage.addEventListener("click", () => {
+      message.classList.remove("openPopup");
+    });
+
   // Check if the passwords match
   if (newPassword === confirmPassword) {
     // Passwords match, save the new password
     localStorage.setItem('password', newPassword);
-    alert('Password changed successfully!');
+    uploadMessage()
   } else {
     // Passwords don't match, show an error message
-    alert('Passwords do not match. Please try again.');
+    const passwordError = document.getElementById('password-error');
+    passwordError.style.display="block";
+    passwordError.textContent = 'Passwords do not match. Please try again.';
   }
 
   // Reset the form

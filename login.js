@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
       loginContainer.style.display = 'none'; // Hide the login container
       contentBody.style.display = 'block'; // Display the content body
     } else {
-      alert('Incorrect password. Please try again.');
+      const loginError = document.getElementById('login-error');
+      loginError.style.display="block";
+      loginError.textContent = 'Incorrect password. Please try again.';
     }
   });
 

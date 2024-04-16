@@ -30,10 +30,10 @@
             <div class="info-edit">
               <div class="info">
                 <div id="profileName">
-                  <label for="profileName">Name : </label> Companies Name
+                  <label for="profileName">Name : </label>Not set
                 </div>
                 <div id="profileAddress">
-                  <label for="profileAddress">Address : </label>Companies Address
+                  <label for="profileAddress">Address : </label>Not set
                 </div>
               </div>
               <div class="edit-profile-btn">
@@ -53,12 +53,12 @@
             </div>
             <div class="info">
               <div class="name">
-                <label for="editProfileName">Name :</label>
+                <label for="editProfileName">Name:</label>
                 <!-- Add an id to the input for easy targeting -->
                 <input type="text" id="editProfileName" value="Camili Ventures...">
               </div>
               <div class="address">
-                <label for="editProfileAddress">Address :</label>
+                <label for="editProfileAddress">Address:</label>
                 <!-- Add an id to the input for easy targeting -->
                 <input type="text" id="editProfileAddress" value="10 Allen junction...">
               </div>
@@ -68,11 +68,19 @@
             </div>
           </div>
           <div class="password">
+            <div class="pop-message" id="sucessfull">
+              <div class="popup-message">
+                <i class="fa-solid fa-circle-check"></i>
+                <h2 id="pass-message"></h2>
+                <button class="close-message-up" type="button">OK</button>
+              </div>
+            </div>
             <Span>Change password</Span>
             <form action="">
               <input type="text" style="display: none;" name="username" aria-hidden="true" tabindex="-1" autocomplete="username">
-              <input type="password" placeholder="New password" autocomplete="new-password">
-              <input type="password" placeholder="Confirm password" autocomplete="current-password">
+              <input type="password" placeholder="New password" autocomplete="new-password" required>
+              <input type="password" placeholder="Confirm password" autocomplete="current-password" required>
+              <p id="password-error"></p>
               <div class="btn">
                 <input type="submit" value="Save">
               </div>

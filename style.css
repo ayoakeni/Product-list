@@ -175,14 +175,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 .login-content form input{
   font-size: 18px;
+  width: 100%;
   padding: 5px 10px;
   border: 1px solid goldenrod;
   border-radius: 5px;
   outline-color: gold;
+}
+#login-error{
+  display: none;
+  font-size: 16px;
+  color: red;
+  margin-top: 10px;
 }
 .login-content form button{
   color: goldenrod;
@@ -783,7 +790,6 @@ input[type="file"] {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  cursor: pointer;
 }
 #imageInput {
   position: absolute;
@@ -802,18 +808,26 @@ input[type="file"] {
 .account-content .info{
   padding: 10px;
 }
+#profileName,
+#profileAddress{
+  color: var(--accent-color);
+  line-height: 35px;
+}
 .account-content .info .name{
+  display: flex;
   margin-bottom: 10px;
   padding-bottom: 20px;
 }
-.account-content .info .name label{
+.account-content .info .address{
+  display: flex;
+  border-top: 1px solid goldenrod;
+  padding-top: 20px;
+}
+.account-content .info .name label,
+.account-content .info .address label{
   font-size: 25px;
   color: var(--accent-color);
   margin-right: 7px;
-}
-.account-content .info .address{
-  border-top: 1px solid goldenrod;
-  padding-top: 20px;
 }
 .account-content .info .name #editProfileName,
 .account-content .info .address #editProfileAddress{
@@ -863,6 +877,12 @@ input[type="file"] {
   margin: auto;
   transition: all 0.3s;
   cursor: pointer;
+}
+#password-error{
+  display: none;
+  color: red;
+  font-size: 16px;
+  text-align: center;
 }
 .edit-profile-btn button{
   margin: 0;
