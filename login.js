@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const contentBody = document.getElementById('content-body');
 
   // Hide the splash screen and display the login container
-  // splashScreen.style.display = 'none';
+  splashScreen.style.display = 'none';
   loginContainer.style.display = 'flex';
 
   // Retrieve the stored password from localStorage

@@ -23,15 +23,16 @@ passwordForm.addEventListener('submit', function(event) {
     closeMessage.addEventListener("click", () => {
       message.classList.remove("openPopup");
     });
-
+   
+  const passwordError = document.getElementById('password-error');
   // Check if the passwords match
   if (newPassword === confirmPassword) {
     // Passwords match, save the new password
     localStorage.setItem('password', newPassword);
     uploadMessage()
+    passwordError.style.display="none";
   } else {
     // Passwords don't match, show an error message
-    const passwordError = document.getElementById('password-error');
     passwordError.style.display="block";
     passwordError.textContent = 'Passwords do not match. Please try again.';
   }

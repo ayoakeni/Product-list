@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   editProfileBtn.addEventListener('click', () => {
     // Update the image in the edit profile section
     editProfileImage.src = profileImage.src;
+    editProfileImage.style.cursor='pointer';
     editProfileForm.style.display = 'block';
     defaultProfile.style.display = 'none'; // Hide the defaultProfile container
   });
