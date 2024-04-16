@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
       contentBody.style.display = 'block'; // Display the content body
     } else {
       const loginError = document.getElementById('login-error');
-      loginError.style.display="block";
+      loginError.style.display = 'block';
       loginError.textContent = 'Incorrect password. Please try again.';
     }
   });
