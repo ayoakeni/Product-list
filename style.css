@@ -508,11 +508,13 @@ main{
   padding: 20px;
 }
 .upl-txt{
+  width: fit-content;
+  margin-bottom: 20px;
+}
+.upl-img-txt{
   display: flex;
   align-items: center;
-  width: fit-content;
   gap: 5px;
-  margin-bottom: 20px;
 }
 .upl-txt label{
   color: var(--accent-color);
@@ -542,6 +544,13 @@ input[type="file"] {
   bottom: 0;
   left: 0;
   visibility: hidden;
+}
+.error-img-message {
+  display: none;
+  justify-content: end;
+  color: red;
+  font-size: 14px;
+  margin-top: 2px;
 }
 #productName{
   font-size: 18px;

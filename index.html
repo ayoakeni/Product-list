@@ -32,7 +32,7 @@
         <button id="startApp">Start App</button>
       </div>
     </div>
-    <div class="login-container">
+    <!-- <div class="login-container">
       <div class="login-box">
         <div class="login-title">
           <h2>Enter Password</h2>
@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="content-body" id="content-body">
       <nav>
         <span class="store-name" id="store-name"><a href="account.html" style="color: red;">Add store name</a></span>
@@ -219,11 +219,14 @@
             </div>
             <form id="uploadForm">
               <div class="upl-txt">
-                <label for="productImage">Product Image:</label>
-                <div class="file-input-container">
-                  <input type="file" id="imageInput" accept="image/*">
-                  <label for="imageInput" class="custom-file-input">Choose Image</label>
+                <div class="upl-img-txt">
+                  <label for="productImage">Product Image:</label>
+                  <div class="file-input-container">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <label for="imageInput" class="custom-file-input">Choose Image</label>
+                  </div>
                 </div>
+                <p id="imageError" class="error-img-message">Please select an image.</p>
               </div>
               <div class="upl-txt">
                 <label for="productName">Product Name:</label>
