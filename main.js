@@ -412,10 +412,9 @@ function handleFormSubmit(event) {
   // If an image is not selected
   const imageError = document.getElementById('imageError');
   if (!productImageFile) {
-      imageError.style.display = 'flex';
-      return; // Stop form submission
+    imageError.style.display = 'flex';
   } else {
-      imageError.style.display = 'none';
+    imageError.style.display = 'none';
   }
 
   const contentBox = document.querySelector('.content-box');
