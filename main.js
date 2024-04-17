@@ -199,10 +199,16 @@ function submitBarcode() {
       if (data && data.items && data.items.length > 0) {
         const product = data.items[0];
         resultElement.innerText = `
-          Product Name: ${product.title}\n
-          Brand: ${product.brand}\n
-          Description: ${product.description}
-        `;
+        <div class="content">
+          <img src="${productImage}" alt="img">
+          <div class="details">
+            <span>${product.title}\n</span>
+            Brand: ${product.brand}\n
+            <span>Price: $${product.description}</span>
+            <button class="add-to-cart-btn">Add to cart</button>
+          </div>
+        </div>
+       `;
       } else {
         resultElement.innerText = 'Product not found';
       }
