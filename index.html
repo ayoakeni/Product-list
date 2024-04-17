@@ -72,10 +72,13 @@
             <a href="settings.html" title="Settings"><i class="fa-solid fa-gear"></i></a>
           </div>
           <div class="container">
-            <div class="search">
+            <div class="search-barcode">
               <div class="search-bar">
                 <input type="search" placeholder="search for items here">
                 <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="barcode">
+                <input type="text" id="barcode" placeholder="Enter Barcode">
               </div>
             </div>
             <div class="box">
@@ -177,6 +180,7 @@
                   </div>
                 </div>
               </div>
+              <div id="result"></div>
               <div class="not-found"><i class="fa-solid fa-ban"></i><span>Item not found</span></div>
               <a href="#scroll-top" class="top-scroll"><i class="fa-solid fa-circle-chevron-up"></i></a>
             </div>

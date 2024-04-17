@@ -172,6 +172,44 @@ searchInput.addEventListener('input', () => {
   }
 });
 
+// Barcode scanning
+const barcode = document.getElementById('barcode');
+let resultElement = document.getElementById('result');
+
+barcode.addEventListener('keydown', (event) => {
+  if (event.key >= '0' && event.key <= '9' && barcode.value.length === 12) {
+    // Only allow numbers and check length
+    submitBarcode();
+    // display result
+    resultElement.style.display = 'flex';
+  }else {
+    resultElement.style.display = 'none';
+  }
+});
+
+function submitBarcode() {
+  const barcode = barcodeInput.value;
+  var apiKey = 'YOUR_API_KEY'; // Replace with your API key
+  fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=${barcode}&apikey=${apiKey}`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    if (data && data.items && data.items.length > 0) {
+      var product = data.items[0];
+      resultElement.innerText = `
+        Product Name: ${product.title}\n
+        Brand: ${product.brand}\n
+        Description: ${product.description}
+      `;
+    } else {
+      resultElement.innerText = 'Product not found';
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    resultElement.innerText = "Error: " + error.message;
+  });
+}
 const addToCartButtons = document.querySelectorAll('.content-box button');
 const itemsNo = document.getElementById('items-no');
 const totalPriceElement = document.querySelector('.total span');

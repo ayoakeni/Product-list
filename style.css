@@ -332,7 +332,7 @@ main{
 .container{
   width: 100%;
 }
-.search{
+.search-barcode{
   display: flex;
   height: fit-content;
   border-bottom: 1px solid goldenrod;
@@ -345,7 +345,9 @@ main{
   margin: 13px auto;
 }
 .search-bar input,
-.search-bar input::placeholder{
+.search-bar input::placeholder,
+.barcode input,
+.barcode ::placeholder{
   color: var(--accent-color);
   font-size: 18px;
   width: 100%;
@@ -358,6 +360,13 @@ main{
 .search i{  
   color: var(--accent-color);
   padding: 5px;
+}
+.barcode{
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px solid goldenrod;
+  margin: 13px auto;
 }
 .box{
   width: 100%;
@@ -412,7 +421,8 @@ main{
   color: #fff;
   background:goldenrod;
 }
-.not-found{
+.not-found,
+.result{
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -423,7 +433,8 @@ main{
 .not-found i{
   font-size: 30px;
 }
-.not-found span{
+.not-found span,
+.result{
   font-size: 25px;
   font-weight: 500;
   font-style: italic;
