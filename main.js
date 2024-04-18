@@ -452,17 +452,18 @@ function handleFormSubmit(event) {
 
   const productName = document.getElementById('productName').value;
   const productPrice = document.getElementById('productPrice').value;
-  const productImageElement = document.querySelector('.popup-content img');
-  const productImage = productImageElement ? productImageElement.src : '';
   const productImageFile = document.getElementById('imageInput').files[0];
 
-  // If an image is not selected
-  const imageError = document.getElementById('imageError');
+  // If an image is not selected, display an error message and return
   if (!productImageFile) {
+    const imageError = document.getElementById('imageError');
     imageError.style.display = 'flex';
-  } else {
-    imageError.style.display = 'none';
+    return;
   }
+
+  // Proceed with form submission
+  const productImageElement = document.querySelector('.popup-content img');
+  const productImage = productImageElement ? productImageElement.src : '';
 
   const contentBox = document.querySelector('.content-box');
   const newProduct = `
