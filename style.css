@@ -357,7 +357,7 @@ main{
   border-right: 1px solid goldenrod;
   outline: none;
 }
-.search i{  
+.search-bar i{  
   color: var(--accent-color);
   padding: 5px;
 }
