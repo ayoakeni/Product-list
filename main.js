@@ -410,10 +410,6 @@ imageInput.addEventListener('change', function() {
   updateLabelText();
 });
 
-// Event listener for file input change
-imageInput.addEventListener('change', handleImageUpload);
-imageInput.addEventListener('change', updateLabelText);
-
 function addToCart(productName, productPrice) {
   let item = document.querySelector(`.item-lists .items[data-name="${productName}"]`);
   if (item) {
