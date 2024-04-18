@@ -402,6 +402,15 @@ function updateLabelText() {
 }
 
 // Event listener for file input change
+imageInput.addEventListener('change', function() {
+  // Hide the error message
+  const imageError = document.getElementById('imageError');
+  imageError.style.display = 'none';
+  // Also update the label text
+  updateLabelText();
+});
+
+// Event listener for file input change
 imageInput.addEventListener('change', handleImageUpload);
 imageInput.addEventListener('change', updateLabelText);
 
