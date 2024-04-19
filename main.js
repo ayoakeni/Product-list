@@ -336,6 +336,9 @@ function resetUploadPopup() {
 
   // Reset the label text
   fileInputLabel.innerText = 'Choose Image';
+
+  // Hide the image error
+  imageError.style.display = 'none';
 }
 
 function handleImageUpload(event) {
