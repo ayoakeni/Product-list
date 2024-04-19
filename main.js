@@ -409,6 +409,8 @@ imageInput.addEventListener('change', function() {
   // Hide the error message
   const imageError = document.getElementById('imageError');
   imageError.style.display = 'none';
+  // Also update the image preview
+  handleImageUpload(event);
   // Also update the label text
   updateLabelText();
 });
