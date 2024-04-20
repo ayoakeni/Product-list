@@ -542,6 +542,7 @@ main{
   background: goldenrod;
   color: #fff !important;
   max-width: 200px;
+  white-space: nowrap;
   cursor: pointer;
   border-radius: 5px;
   overflow: hidden;
