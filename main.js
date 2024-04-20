@@ -481,7 +481,7 @@ function handleFormSubmit(event) {
       <img src="${productImage}" alt="img">
       <div class="details">
         <span>${productName}</span>
-        <span>Price: $${productPrice}</span>
+        <span>Price: $${productPrice}.99</span>
         <button class="add-to-cart-btn">Add to cart</button>
       </div>
     </div>
