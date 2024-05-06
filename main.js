@@ -1,49 +1,49 @@
-// import { addProductToFirestore, uploadImageToStorage } from './firebase.js';
+import { addProductToFirestore, uploadImageToStorage } from './firebase.js';
 
-// import { getFirestore, collection, getDocs } from '../firebase/firestore';
-// import { initializeApp } from './firebase/app';
+import { getFirestore, collection, getDocs } from '../firebase/firestore';
+import { initializeApp } from './firebase/app';
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyC_uukEnHAAgyaw8Qxhrl1nwcZj_jmsK9c",
-//   authDomain: "product-list-a6129.firebaseapp.com",
-//   projectId: "product-list-a6129",
-//   storageBucket: "product-list-a6129.appspot.com",
-//   messagingSenderId: "261995389700",
-//   appId: "1:261995389700:web:5bbef7bae829f637816651",
-//   measurementId: "G-H8G1NQ76FZ"
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyC_uukEnHAAgyaw8Qxhrl1nwcZj_jmsK9c",
+  authDomain: "product-list-a6129.firebaseapp.com",
+  projectId: "product-list-a6129",
+  storageBucket: "product-list-a6129.appspot.com",
+  messagingSenderId: "261995389700",
+  appId: "1:261995389700:web:5bbef7bae829f637816651",
+  measurementId: "G-H8G1NQ76FZ"
+};
 
-// const app = initializeApp(firebaseConfig);
-// const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-// async function fetchProductsFromFirestore() {
-//   const productsRef = collection(db, 'products');
-//   const snapshot = await getDocs(productsRef);
-//   return snapshot.docs.map(doc => doc.data());
-// }
+async function fetchProductsFromFirestore() {
+  const productsRef = collection(db, 'products');
+  const snapshot = await getDocs(productsRef);
+  return snapshot.docs.map(doc => doc.data());
+}
 
-// async function displayProducts() {
-//   const products = await fetchProductsFromFirestore();
-//   const contentBox = document.querySelector('.content-box');
-//   contentBox.innerHTML = ''; // Clear existing content
+async function displayProducts() {
+  const products = await fetchProductsFromFirestore();
+  const contentBox = document.querySelector('.content-box');
+  contentBox.innerHTML = ''; // Clear existing content
 
-//   products.forEach(product => {
-//     const productElement = document.createElement('div');
-//     productElement.classList.add('content');
-//     productElement.innerHTML = `
-//       <img src="${product.image}" alt="img">
-//       <div class="details">
-//         <span>${product.name}</span>
-//         <span>Price: $${product.price}</span>
-//         <button class="add-to-cart-btn">Add to cart</button>
-//       </div>
-//     `;
-//     contentBox.appendChild(productElement);
-//   });
-// }
+  products.forEach(product => {
+    const productElement = document.createElement('div');
+    productElement.classList.add('content');
+    productElement.innerHTML = `
+      <img src="${product.image}" alt="img">
+      <div class="details">
+        <span>${product.name}</span>
+        <span>Price: $${product.price}</span>
+        <button class="add-to-cart-btn">Add to cart</button>
+      </div>
+    `;
+    contentBox.appendChild(productElement);
+  });
+}
 
-// // Call displayProducts on page load
-// document.addEventListener('DOMContentLoaded', displayProducts);
+// Call displayProducts on page load
+document.addEventListener('DOMContentLoaded', displayProducts);
 
 // Splash Screen & Onboarding
 let currentScreen = 0;
@@ -489,16 +489,16 @@ function handleFormSubmit(event) {
 
   contentBox.insertAdjacentHTML('beforeend', newProduct);
 
-  // // Upload image to Firebase Storage
-  // uploadImageToStorage(productImageFile)
-  // .then((imageUrl) => {
-  //   // Add the new product to Firestore
-  //   addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: imageUrl });
-  // })
-  // .catch((error) => {
-  //   console.error('Error uploading image:', error);
-  //   // Handle error (e.g., display an error message to the user)
-  // });
+  // Upload image to Firebase Storage
+  uploadImageToStorage(productImageFile)
+  .then((imageUrl) => {
+    // Add the new product to Firestore
+    addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: imageUrl });
+  })
+  .catch((error) => {
+    console.error('Error uploading image:', error);
+    // Handle error (e.g., display an error message to the user)
+  });
 
   // Alert the user for successful upload
   uploadMessage();
