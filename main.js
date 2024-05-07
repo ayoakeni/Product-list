@@ -430,37 +430,32 @@ function handleFormSubmit(event) {
   const productImageElement = document.querySelector('.popup-content img');
   const productImage = productImageElement ? productImageElement.src : '';
 
-  const contentBox = document.querySelector('.content-box');
-  const newProduct = `
-    <div class="content">
-      <img src="${productImage}" alt="img">
-      <div class="details">
-        <span>${productName}</span>
-        <span>Price: $${productPrice}.99</span>
-        <button class="add-to-cart-btn">Add to cart</button>
-      </div>
-    </div>
-  `;
-
-  contentBox.insertAdjacentHTML('beforeend', newProduct);
-
-  // Upload image to Firebase Storage
+  // Upload Product to Firebase Storage
   uploadImageToStorage(productImageFile)
   .then((imageUrl) => {
     // Add the new product to Firestore
-    console.log('Product data:', { name: productName, price: productPrice, image: imageUrl });
     addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: imageUrl });
-  })
-  .then(() => {
-    console.log('Product added to Firestore successfully');
+    // Add the new product to the content box
+    const contentBox = document.querySelector('.content-box');
+    const newProduct = `
+      <div class="content">
+        <img src="${productImage}" alt="img">
+        <div class="details">
+          <span>${productName}</span>
+          <span>Price: $${productPrice}.99</span>
+          <button class="add-to-cart-btn">Add to cart</button>
+        </div>
+      </div>
+    `;
+    contentBox.insertAdjacentHTML('beforeend', newProduct);
+    // Alert the user for successful upload
+    uploadMessage();
   })
   .catch((error) => {
     console.error('Error uploading image:', error);
     // Handle error (e.g., display an error message to the user)
+    alert("Failed to upload. Please try again.");
   });
-
-  // Alert the user for successful upload
-  uploadMessage();
 
   // Reset upload popup content
   resetUploadPopup();

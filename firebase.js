@@ -12,7 +12,9 @@ const firebaseConfig = {
   storageBucket: "product-list-a6129.appspot.com",
   messagingSenderId: "261995389700",
   appId: "1:261995389700:web:5bbef7bae829f637816651",
-  measurementId: "G-H8G1NQ76FZ"
+  measurementId: "G-H8G1NQ76FZ",
+  // Disable offline persistence
+  persistence: false
 };
 
 // Initialize Firebase
