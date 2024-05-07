@@ -22,6 +22,7 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 async function addProductToFirestore(productData) {
+  console.log('Adding product to Firestore:', productData);
   try {
     const docRef = await addDoc(collection(db, 'products'), productData);
     console.log('Product added with ID: ', docRef.id);

@@ -1,50 +1,5 @@
 import { addProductToFirestore, uploadImageToStorage } from './firebase.js';
 
-import { getFirestore, collection, getDocs } from '../firebase/firestore';
-import { initializeApp } from './firebase/app';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyC_uukEnHAAgyaw8Qxhrl1nwcZj_jmsK9c",
-  authDomain: "product-list-a6129.firebaseapp.com",
-  projectId: "product-list-a6129",
-  storageBucket: "product-list-a6129.appspot.com",
-  messagingSenderId: "261995389700",
-  appId: "1:261995389700:web:5bbef7bae829f637816651",
-  measurementId: "G-H8G1NQ76FZ"
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-async function fetchProductsFromFirestore() {
-  const productsRef = collection(db, 'products');
-  const snapshot = await getDocs(productsRef);
-  return snapshot.docs.map(doc => doc.data());
-}
-
-async function displayProducts() {
-  const products = await fetchProductsFromFirestore();
-  const contentBox = document.querySelector('.content-box');
-  contentBox.innerHTML = ''; // Clear existing content
-
-  products.forEach(product => {
-    const productElement = document.createElement('div');
-    productElement.classList.add('content');
-    productElement.innerHTML = `
-      <img src="${product.image}" alt="img">
-      <div class="details">
-        <span>${product.name}</span>
-        <span>Price: $${product.price}</span>
-        <button class="add-to-cart-btn">Add to cart</button>
-      </div>
-    `;
-    contentBox.appendChild(productElement);
-  });
-}
-
-// Call displayProducts on page load
-document.addEventListener('DOMContentLoaded', displayProducts);
-
 // Splash Screen & Onboarding
 let currentScreen = 0;
 
@@ -145,7 +100,7 @@ closeMessage.forEach(closeMessage =>{
 });
 
 // Search input
-const searchInput = document.querySelector('input[type="search"]');
+const searchInput = document.getElementById('search');
 const contentBox = document.querySelector('.content-box');
 const notFound = document.querySelector('.not-found');
 const emptyCart = document.querySelector('.empty-cart'); // Select the empty cart element
@@ -493,7 +448,11 @@ function handleFormSubmit(event) {
   uploadImageToStorage(productImageFile)
   .then((imageUrl) => {
     // Add the new product to Firestore
+    console.log('Product data:', { name: productName, price: productPrice, image: imageUrl });
     addProductToFirestore({ name: productName, price: parseFloat(productPrice.replace('$', '')), image: imageUrl });
+  })
+  .then(() => {
+    console.log('Product added to Firestore successfully');
   })
   .catch((error) => {
     console.error('Error uploading image:', error);
