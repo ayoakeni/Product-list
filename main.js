@@ -540,3 +540,22 @@ downloadButton.addEventListener('click', () => {
     }
   });
 });
+
+// // Hide .html when hovering
+document.addEventListener("DOMContentLoaded", function() {
+  var links = document.querySelectorAll("a");
+  links.forEach(function(link) {
+    var href = link.getAttribute("href");
+    if (href && href.endsWith(".html")) {
+      // Store the original href with .html extension
+      link.dataset.originalHref = href;
+      // Remove .html extension for display
+      link.setAttribute("href", href.slice(0, -5));
+      // Restore .html extension on click
+      link.addEventListener("click", function(event) {
+        event.preventDefault();
+        window.location.href = this.dataset.originalHref;
+      });
+    }
+  });
+});
